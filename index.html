@@ -86,7 +86,7 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:22px 6
 .h-eye{font-size:11px;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--li2);margin-bottom:28px;display:flex;align-items:center;gap:10px;opacity:0;animation:heroUp 0.5s 0.1s both;}
 .h-eye::before{content:'';width:22px;height:1px;background:var(--li2);}
 h1.hh{font-size:clamp(48px,7vw,92px);font-weight:800;line-height:0.93;letter-spacing:-0.05em;opacity:0;animation:heroUp 0.7s 0.22s both;}
-h1.hh .ac{color:var(--li2);}h1.hh .gh{color:var(--dim);}
+h1.hh .ac{color:var(--li2);}h1.hh .gh{color:#3D5A7A;}
 .h-rule{width:56px;height:2px;background:var(--li);margin:36px 0;opacity:0;animation:heroUp 0.4s 0.5s both;}
 .h-sub{font-size:clamp(15px,1.6vw,19px);font-weight:300;color:var(--muted);line-height:1.6;max-width:500px;opacity:0;animation:heroUp 0.6s 0.6s both;}
 .h-sub em{color:var(--text);font-style:normal;font-weight:500;}
@@ -115,6 +115,16 @@ h2.sh{font-size:clamp(28px,3vw,42px);font-weight:800;letter-spacing:-0.04em;line
 .dc:hover .dc-t{color:var(--li2);}
 .dc-b{font-size:12px;color:var(--muted);line-height:1.6;}
 .dc-b em{color:var(--text);font-style:normal;}
+.dc-era{font-size:9px;font-weight:800;letter-spacing:0.18em;text-transform:uppercase;color:var(--dim);margin-bottom:10px;}
+.dc-era--good{color:var(--li);}
+.dc--good{border-color:rgba(10,102,194,0.25);background:rgba(10,102,194,0.04);}
+.dc--good .dc-t{color:var(--li2);}
+.dc-bar{height:3px;border-radius:2px;background:var(--dim);margin-top:18px;overflow:hidden;}
+.dc-bar span{display:block;height:100%;border-radius:2px;}
+.dc-bar--bad span{width:20%;background:#3D4F61;}
+.dc-bar--mid span{width:55%;background:#4A7FA5;}
+.dc-bar--good span{width:100%;background:var(--li);animation:fillBar 1.2s 0.8s ease both;}
+@keyframes fillBar{from{width:0%;}to{width:100%;}}
 .why-g{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--bdr);margin-top:48px;}
 .wc{background:var(--bg2);padding:36px 32px;cursor:default;position:relative;overflow:hidden;transform-style:preserve-3d;}
 .wc::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--li);transform:scaleX(0);transform-origin:left;transition:transform 0.4s;}
@@ -215,7 +225,7 @@ footer{padding:26px 64px;border-top:1px solid var(--bdr);display:flex;align-item
     <div class="h-eye">Mason Bertrand · Social Commerce</div>
     <h1 class="hh">Your customers<br>already <span class="ac">discovered</span><br>your <span class="gh">competitor.</span></h1>
     <div class="h-rule"></div>
-    <p class="h-sub">Social commerce is the fastest-growing revenue channel. <em>Most brands aren't in it yet.</em></p>
+    <p class="h-sub">Social commerce is generating billions in revenue for brands that figured it out early. <em>Most brands still haven't made a move.</em></p>
   </div>
 </section>
 
@@ -224,20 +234,26 @@ footer{padding:26px 64px;border-top:1px solid var(--bdr);display:flex;align-item
     <div class="w-l s3d-l">
       <div class="lbl">What Is Social Commerce</div>
       <h2>Not advertising.<br>Trust at scale.</h2>
-      <p>When a creator, affiliate, or influencer your audience already follows recommends your product — and they buy it in that same moment — <em>that's social commerce.</em> The conversion rates, acquisition costs, and compounding potential look like nothing else in digital marketing.</p>
+      <p>When a creator, affiliate, or influencer recommends your product to their audience — and that audience buys it <em>without ever leaving the platform</em> — that's social commerce. The conversion rates, acquisition costs, and compounding potential look like nothing else in digital marketing.</p>
     </div>
     <div class="w-r">
       <div class="dc s3d d1">
+        <div class="dc-era">Then</div>
         <div class="dc-t">Traditional advertising</div>
-        <div class="dc-b">You pay to interrupt someone. They skip it. <em>You get a bill. They forget your brand.</em></div>
+        <div class="dc-b">You pay to interrupt someone. They skip it. You get a bill. They forget your brand.</div>
+        <div class="dc-bar dc-bar--bad"><span></span></div>
       </div>
       <div class="dc s3d d2">
+        <div class="dc-era">Getting closer</div>
         <div class="dc-t">One-off influencer post</div>
-        <div class="dc-b">One sponsored post, one spike, then silence. <em>No repeat, no system, no compounding.</em></div>
+        <div class="dc-b">One sponsored post, one spike, then silence. No system. No compounding.</div>
+        <div class="dc-bar dc-bar--mid"><span></span></div>
       </div>
-      <div class="dc s3d d3">
+      <div class="dc dc--good s3d d3">
+        <div class="dc-era dc-era--good">Now</div>
         <div class="dc-t">Social commerce</div>
-        <div class="dc-b">Real people with real audiences recommend your product — daily, at scale — and their followers <em>buy it on the spot.</em></div>
+        <div class="dc-b">Creators and affiliates recommend your product to thousands of people — daily, in-platform — and they buy it <em>on the spot.</em></div>
+        <div class="dc-bar dc-bar--good"><span></span></div>
       </div>
     </div>
   </div>
