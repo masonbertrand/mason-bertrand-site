@@ -145,7 +145,8 @@ h2.sh{font-size:clamp(28px,3vw,42px);font-weight:800;letter-spacing:-0.04em;line
 .sphere-wrap:active{cursor:grabbing;}
 #halo-canvas{position:absolute;inset:0;width:100%;height:100%;will-change:transform;contain:paint;}
 .sl{position:absolute;pointer-events:none;transform:translate(-50%,-50%);opacity:0;transition:opacity 0.5s;}
-.sl-text{font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#fff;padding:6px 14px;background:#0A66C2;border-radius:4px;white-space:nowrap;line-height:1;display:block;}
+.sl-text{font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#fff;padding:8px 14px;background:#0A66C2;border-radius:4px;line-height:1;display:block;text-align:center;}
+.sl-sub{font-size:9px;font-weight:400;letter-spacing:0.04em;color:rgba(255,255,255,0.7);margin-top:4px;text-transform:none;}
 .sl-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:11px;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;color:var(--li2);text-align:center;pointer-events:none;line-height:1.5;z-index:2;opacity:0;transition:opacity 0.6s 0.3s;}
 .sl-center.show{opacity:1;}
 .sphere-hint{font-size:10px;color:var(--dim);letter-spacing:0.1em;text-transform:uppercase;text-align:center;margin-top:16px;}
@@ -390,7 +391,7 @@ footer{padding:22px 64px;border-top:1px solid var(--bdr);display:flex;align-item
 <section class="sec bdt" id="s-plat" style="padding-top:64px;padding-bottom:64px;">
   <div class="s3d">
     <div class="lbl">Where It Lives</div>
-    <h2 class="sh">Every platform your<br>audience already is.</h2>
+    <h2 class="sh">Where your audience scrolls,<br>discovers — and buys.</h2>
   </div>
   <div class="plat-row-vis">
     <div class="pv s3d d1" style="padding:32px 22px 28px;">
@@ -429,14 +430,14 @@ footer{padding:22px 64px;border-top:1px solid var(--bdr);display:flex;align-item
 <section class="sec sec-alt bdt" id="s-halo">
   <div class="s3d" style="text-align:center;margin-bottom:0;">
     <div class="lbl" style="justify-content:center;">The Halo Effect</div>
-    <h2 class="sh" style="text-align:center;max-width:none;">One great creator can make your<br>whole brand feel different.</h2>
+    <h2 class="sh" style="text-align:center;max-width:none;">The right creator doesn't just reach your audience.<br>They convert it.</h2>
   </div>
   <div class="sphere-wrap" id="sphere-wrap">
     <canvas id="halo-canvas"></canvas>
-    <div class="sl" id="sl-0"><div class="sl-text">Intent</div></div>
-    <div class="sl" id="sl-1"><div class="sl-text">Convert</div></div>
-    <div class="sl" id="sl-2"><div class="sl-text">Retain</div></div>
-    <div class="sl" id="sl-3"><div class="sl-text">Advocate</div></div>
+    <div class="sl" id="sl-0"><div class="sl-text">Purchase Intent<div class="sl-sub">Audience already wants it</div></div></div>
+    <div class="sl" id="sl-1"><div class="sl-text">Direct Checkout<div class="sl-sub">Buy without leaving the app</div></div></div>
+    <div class="sl" id="sl-2"><div class="sl-text">Repeat Purchase<div class="sl-sub">Trust compounds over time</div></div></div>
+    <div class="sl" id="sl-3"><div class="sl-text">Organic Reach<div class="sl-sub">Buyers become your next creators</div></div></div>
     <div class="sl-center" id="sl-center">The<br>Flywheel</div>
   </div>
   <p class="sphere-hint s3d">Drag to rotate</p>
@@ -461,43 +462,91 @@ footer{padding:22px 64px;border-top:1px solid var(--bdr);display:flex;align-item
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
-/* ── HERO: Trending chart lines ── */
+/* ── HERO: Upward momentum chart ── */
 (function(){
   const canvas=document.getElementById('hero-canvas');
   if(!canvas)return;
   const ctx=canvas.getContext('2d');
   let W,H,paused=false;
-  function resize(){W=canvas.width=canvas.parentElement.offsetWidth||window.innerWidth;H=canvas.height=canvas.parentElement.offsetHeight||820;}
+  function resize(){
+    W=canvas.width=canvas.parentElement.offsetWidth||window.innerWidth;
+    H=canvas.height=canvas.parentElement.offsetHeight||820;
+  }
   setTimeout(resize,60);window.addEventListener('resize',resize);
   document.addEventListener('visibilitychange',()=>{paused=document.hidden;});
-  const lines=[
-    {yPct:0.82,amp:0.055,freq:1.8,speed:0.00018,phase:0.0,opacity:0.10},
-    {yPct:0.65,amp:0.07, freq:2.2,speed:0.00014,phase:1.4,opacity:0.08},
-    {yPct:0.50,amp:0.05, freq:1.5,speed:0.00022,phase:2.8,opacity:0.07},
-    {yPct:0.35,amp:0.06, freq:2.6,speed:0.00016,phase:4.2,opacity:0.06},
-  ];
-  let t=0;
+
+  /* Two upward-trending lines with randomised data points */
+  function makeLine(seed,startYPct,endYPct,pts){
+    const arr=[];
+    for(let i=0;i<pts;i++){
+      const t=i/(pts-1);
+      /* smooth upward curve with slight noise */
+      const base=startYPct+(endYPct-startYPct)*t;
+      const noise=(Math.sin(i*seed*7.3)*0.5+Math.sin(i*seed*3.1)*0.5)*0.03;
+      arr.push(base+noise);
+    }
+    return arr;
+  }
+
+  const PTS=18;
+  const lineA=makeLine(1.0, 0.88, 0.30, PTS); /* main line — strong upward */
+  const lineB=makeLine(2.3, 0.92, 0.52, PTS); /* secondary */
+  const lineC=makeLine(3.7, 0.95, 0.70, PTS); /* tertiary, faintest */
+
+  let progress=0; /* animate draw-on */
+
+  function drawLine(yPcts, color, lw, dotR, fillColor){
+    if(progress<=0)return;
+    const visiblePts=Math.max(2,Math.floor(progress*PTS));
+    /* gradient stroke */
+    const x0=(0/(PTS-1))*W, x1=((visiblePts-1)/(PTS-1))*W;
+    const grad=ctx.createLinearGradient(x0,0,x1,0);
+    grad.addColorStop(0,'rgba(10,102,194,0.0)');
+    grad.addColorStop(0.4,color);
+    grad.addColorStop(1,color);
+
+    ctx.beginPath();
+    ctx.strokeStyle=grad;
+    ctx.lineWidth=lw;
+    ctx.lineJoin='round';
+    ctx.lineCap='round';
+    for(let i=0;i<visiblePts;i++){
+      const x=(i/(PTS-1))*W;
+      const y=yPcts[i]*H;
+      i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);
+    }
+    ctx.stroke();
+
+    /* dot at each data point */
+    if(dotR>0){
+      for(let i=1;i<visiblePts;i++){
+        const x=(i/(PTS-1))*W;
+        const y=yPcts[i]*H;
+        ctx.beginPath();
+        ctx.arc(x,y,dotR,0,Math.PI*2);
+        ctx.fillStyle=fillColor;
+        ctx.fill();
+      }
+    }
+
+    /* bright dot at leading edge */
+    const li=visiblePts-1;
+    const lx=(li/(PTS-1))*W, ly=yPcts[li]*H;
+    ctx.beginPath();
+    ctx.arc(lx,ly,dotR+1.5,0,Math.PI*2);
+    ctx.fillStyle='rgba(112,181,249,0.9)';
+    ctx.fill();
+  }
+
   (function draw(){
     requestAnimationFrame(draw);
-    if(paused||!W)return;
-    t++;
+    if(paused)return;
+    if(progress<1) progress=Math.min(1,progress+0.004);
+    if(!W)return;
     ctx.clearRect(0,0,W,H);
-    lines.forEach(l=>{
-      ctx.beginPath();
-      ctx.strokeStyle=`rgba(10,102,194,${l.opacity})`;
-      ctx.lineWidth=1.5;
-      const steps=Math.ceil(W/3);
-      for(let i=0;i<=steps;i++){
-        const x=i/steps*W;
-        const prog=i/steps;
-        /* gentle upward trend + slow wave */
-        const trend=prog*H*0.18;
-        const wave=Math.sin(prog*l.freq*Math.PI*2+t*l.speed*1000+l.phase)*l.amp*H;
-        const y=l.yPct*H - trend + wave;
-        i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);
-      }
-      ctx.stroke();
-    });
+    drawLine(lineC,'rgba(10,102,194,0.08)',1,0,'transparent');
+    drawLine(lineB,'rgba(10,102,194,0.13)',1.5,1.5,'rgba(10,102,194,0.25)');
+    drawLine(lineA,'rgba(10,102,194,0.22)',2,2.5,'rgba(10,102,194,0.35)');
   })();
 })();
 
