@@ -87,8 +87,53 @@ footer{padding:22px 64px;border-top:1px solid var(--bdr);display:flex;align-item
   footer{padding:20px;flex-direction:column;gap:8px;text-align:center;}
 }
 </style>
+  <!-- Vercel Analytics & Speed Insights -->
+  <script defer src="/_vercel/insights/script.js"></script>
+  <script defer src="/_vercel/speed-insights/script.js"></script>
 </head>
 <body>
+<script>
+(function(){
+  const PASS='bertrand',COOKIE='mb_auth';
+  function getCookie(n){return document.cookie.split(';').map(c=>c.trim()).find(c=>c.startsWith(n+'='));}
+  if(getCookie(COOKIE))return;
+  // Build gate
+  const overlay=document.createElement('div');
+  overlay.id='pw-gate';
+  overlay.style.cssText='position:fixed;inset:0;background:#090D12;z-index:9999;display:flex;align-items:center;justify-content:center;font-family:-apple-system,"SF Pro Display",BlinkMacSystemFont,"Segoe UI",sans-serif;';
+  overlay.innerHTML=`
+    <div style="text-align:center;max-width:360px;padding:0 24px;">
+      <div style="font-size:13px;font-weight:700;letter-spacing:-0.01em;color:#E8EAED;margin-bottom:40px;">Mason Bertrand</div>
+      <input id="pw-input" type="password" placeholder="Password" autocomplete="current-password"
+        style="width:100%;padding:14px 20px;background:#0F1620;border:1px solid rgba(255,255,255,0.055);border-radius:10px;color:#E8EAED;font-size:15px;font-family:inherit;outline:none;letter-spacing:0.02em;text-align:center;margin-bottom:10px;transition:border 0.2s;">
+      <div id="pw-err" style="font-size:12px;color:#ef4444;min-height:18px;margin-bottom:10px;"></div>
+      <button id="pw-btn"
+        style="width:100%;padding:14px;background:#0A66C2;color:#fff;border:none;border-radius:10px;font-size:14px;font-weight:700;font-family:inherit;cursor:pointer;letter-spacing:0.02em;transition:opacity 0.2s;">
+        Enter
+      </button>
+    </div>`;
+  document.body.appendChild(overlay);
+  document.body.style.overflow='hidden';
+  const input=document.getElementById('pw-input');
+  const btn=document.getElementById('pw-btn');
+  const err=document.getElementById('pw-err');
+  function attempt(){
+    if(input.value===PASS){
+      document.cookie=COOKIE+'=1;path=/;max-age='+60*60*24*30;
+      overlay.style.opacity='0';overlay.style.transition='opacity 0.3s';
+      setTimeout(()=>{overlay.remove();document.body.style.overflow='';},300);
+    } else {
+      err.textContent='Incorrect password.';
+      input.style.borderColor='rgba(239,68,68,0.5)';
+      input.value='';input.focus();
+      setTimeout(()=>{err.textContent='';input.style.borderColor='rgba(255,255,255,0.055)';},2000);
+    }
+  }
+  btn.addEventListener('click',attempt);
+  input.addEventListener('keydown',e=>{if(e.key==='Enter')attempt();});
+  setTimeout(()=>input.focus(),100);
+})();
+</script>
 
 <div class="progress-bar" id="pbar"></div>
 
