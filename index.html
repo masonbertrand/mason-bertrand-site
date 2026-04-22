@@ -178,6 +178,8 @@ footer{padding:26px 64px;border-top:1px solid var(--bdr);display:flex;align-item
   .h-sub{font-size:15px;}.h-rule{margin:24px 0;}
   .sec{padding:64px 28px;}
   .what-g,.mason-g{grid-template-columns:1fr;gap:40px;}
+  #s-gap>div,#s-mason>div{grid-template-columns:1fr !important;gap:36px !important;}
+  #s-mason>div>div:last-child{padding-top:0 !important;}
   .why-g{grid-template-columns:1fr;margin-top:36px;}
   .plat-row{flex-wrap:wrap;}
   .pi{flex:0 0 50%;border-bottom:1px solid var(--bdr);}
@@ -326,18 +328,26 @@ footer{padding:26px 64px;border-top:1px solid var(--bdr);display:flex;align-item
 </section>
 
 <section class="sec bdt" id="s-gap">
-  <div class="gap-in">
-    <div class="s3d"><div class="lbl">The Gap</div></div>
-    <blockquote class="s3d-l">Most brands have <em>heard about</em> social commerce.<br>Very few have built the infrastructure to capture it.</blockquote>
-    <p class="s3d d1">The brands sitting out aren't just missing revenue today — they're letting competitors lock in creator relationships, platform trust, and audience habits that compound over time. The halo lifts Amazon, search, and paid channels too. <em>The window is open. It won't be forever.</em></p>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start;">
+    <div class="s3d-l">
+      <div class="lbl">The Gap</div>
+      <blockquote style="font-size:clamp(20px,2.4vw,28px);font-weight:300;line-height:1.5;color:var(--muted);letter-spacing:-0.01em;padding-left:24px;border-left:2px solid var(--li);margin-bottom:0;">Most brands have <em style="color:var(--text);font-style:normal;font-weight:500;">heard about</em> social commerce.<br>Very few have built the infrastructure to capture it.</blockquote>
+    </div>
+    <div class="s3d d1" style="padding-top:52px;">
+      <p style="font-size:15px;color:var(--muted);line-height:1.85;font-weight:300;">The brands sitting out aren't just missing revenue today — they're letting competitors lock in creator relationships, platform trust, and audience habits that compound over time. The halo lifts Amazon, search, and paid channels too. <em style="color:var(--text);font-style:normal;font-weight:500;">The window is open. It won't be forever.</em></p>
+    </div>
   </div>
 </section>
 
 <section class="sec sec-alt bdt" id="s-mason">
-  <div class="s3d-l" style="max-width:620px;">
-    <div class="lbl">Who I Am</div>
-    <h2 style="font-size:clamp(28px,3vw,40px);font-weight:800;letter-spacing:-0.04em;line-height:1.05;margin-bottom:18px;">I've been building inside this space for years.</h2>
-    <p style="font-size:14px;color:var(--muted);line-height:1.8;font-weight:300;">I'm Mason Bertrand — an operator, not a consultant. I've built social commerce programs from scratch across creators, affiliates, and influencers on every major platform, and I understand <em style="color:var(--text);font-style:normal;font-weight:500;">why most brands get this wrong</em> and what it looks like when it's done right.</p>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;">
+    <div class="s3d-l">
+      <div class="lbl">Who I Am</div>
+      <h2 style="font-size:clamp(28px,3vw,40px);font-weight:800;letter-spacing:-0.04em;line-height:1.05;">I've been building inside this space for years.</h2>
+    </div>
+    <div class="s3d d1">
+      <p style="font-size:15px;color:var(--muted);line-height:1.85;font-weight:300;">I'm Mason Bertrand — an operator, not a consultant. I've built social commerce programs from scratch across creators, affiliates, and influencers on every major platform, and I understand <em style="color:var(--text);font-style:normal;font-weight:500;">why most brands get this wrong</em> and what it looks like when it's done right.</p>
+    </div>
   </div>
 </section>
 
