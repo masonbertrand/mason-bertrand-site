@@ -84,7 +84,12 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:22px 6
 .n-name{font-size:13px;font-weight:600;color:var(--muted);}
 .n-cta{font-size:11px;font-weight:700;padding:8px 18px;background:transparent;color:var(--li2);border:1px solid var(--bdr2);border-radius:20px;text-decoration:none;letter-spacing:0.04em;transition:all 0.2s;cursor:pointer;}
 .n-cta:hover{background:var(--li3);}
-.hero{position:relative;min-height:720px;display:flex;flex-direction:column;justify-content:center;overflow:hidden;padding:0 64px;}
+.hero{position:relative;min-height:820px;display:flex;flex-direction:column;justify-content:center;overflow:hidden;padding:0 64px;}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:180px;background:linear-gradient(to bottom,transparent,var(--bg));z-index:5;pointer-events:none;}
+.hero-glow{position:absolute;top:50%;left:50%;transform:translate(-60%,-50%);width:700px;height:500px;background:radial-gradient(ellipse at center,rgba(10,102,194,0.13) 0%,transparent 70%);z-index:1;pointer-events:none;}
+.h-scroll{position:absolute;bottom:36px;left:64px;z-index:10;display:flex;align-items:center;gap:10px;opacity:0;animation:heroUp 0.6s 1s both;}
+.h-scroll-line{width:1px;height:36px;background:linear-gradient(to bottom,var(--li),transparent);}
+.h-scroll-txt{font-size:9px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--dim);}
 #bg3d{position:absolute;inset:0;z-index:0;will-change:transform;contain:paint;}
 .hero-body{position:relative;z-index:10;max-width:780px;}
 .h-eye{font-size:11px;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--li2);margin-bottom:28px;display:flex;align-items:center;gap:10px;opacity:0;animation:heroUp 0.5s 0.1s both;}
@@ -195,6 +200,7 @@ footer{padding:22px 64px;border-top:1px solid var(--bdr);display:flex;align-item
   .wc{transform:none !important;}
 }
 @media(max-width:480px){
+  .h-scroll{display:none;}
   nav{padding:16px 20px;}
   .hero{min-height:520px;padding:0 20px;}.h-eye{font-size:9px;letter-spacing:0.16em;}.h-rule{width:40px;}
   .sec{padding:52px 20px;}.lbl{margin-bottom:28px;}
@@ -290,15 +296,17 @@ footer{padding:22px 64px;border-top:1px solid var(--bdr);display:flex;align-item
 
 <section class="hero">
   <canvas id="bg3d"></canvas>
+  <div class="hero-glow"></div>
   <div class="hero-body">
     <div class="h-eye">Mason Bertrand · Social Commerce</div>
     <h1 class="hh">Your customers<br>already <span class="ac">discovered</span><br>your <span class="gh">competitor.</span></h1>
     <div class="h-rule"></div>
     <p class="h-sub">Social commerce is generating billions in revenue for brands that figured it out early. <em>Most brands still haven't made a move.</em></p>
   </div>
+  <div class="h-scroll"><div class="h-scroll-line"></div><span class="h-scroll-txt">Scroll</span></div>
 </section>
 
-<section class="sec bdt" id="s-mason">
+<section class="sec sec-alt bdt" id="s-mason">
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;">
     <div class="s3d-l">
       <div class="lbl">Who I Am</div>
@@ -323,7 +331,7 @@ footer{padding:22px 64px;border-top:1px solid var(--bdr);display:flex;align-item
 </section>
 
 
-<section class="sec sec-alt bdt" id="s-what">
+<section class="sec bdt" id="s-what">
   <div class="what-g">
     <div class="w-l s3d-l">
       <div class="lbl">What Is Social Commerce</div>
@@ -353,7 +361,7 @@ footer{padding:22px 64px;border-top:1px solid var(--bdr);display:flex;align-item
   </div>
 </section>
 
-<section class="sec bdt" id="s-why">
+<section class="sec sec-alt bdt" id="s-why">
   <div class="s3d">
     <div class="lbl">Why It Matters Now</div>
     <h2 class="sh">Social commerce isn't emerging.<br>It's already here.</h2>
@@ -379,7 +387,7 @@ footer{padding:22px 64px;border-top:1px solid var(--bdr);display:flex;align-item
 
 
 
-<section class="sec sec-alt bdt" id="s-plat" style="padding-top:64px;padding-bottom:64px;">
+<section class="sec bdt" id="s-plat" style="padding-top:64px;padding-bottom:64px;">
   <div class="s3d">
     <div class="lbl">Where It Lives</div>
     <h2 class="sh">Every platform your<br>audience already is.</h2>
@@ -418,7 +426,7 @@ footer{padding:22px 64px;border-top:1px solid var(--bdr);display:flex;align-item
 
 
 
-<section class="sec bdt" id="s-halo">
+<section class="sec sec-alt bdt" id="s-halo">
   <div class="s3d" style="text-align:center;margin-bottom:0;">
     <div class="lbl" style="justify-content:center;">The Halo Effect</div>
     <h2 class="sh" style="text-align:center;max-width:none;">One great creator can make your<br>whole brand feel different.</h2>
@@ -463,15 +471,15 @@ footer{padding:22px 64px;border-top:1px solid var(--bdr);display:flex;align-item
   function rsz(){const w=c.parentElement.offsetWidth||900,h=c.parentElement.offsetHeight||720;renderer.setSize(w,h);cam.aspect=w/h;cam.updateProjectionMatrix();}
   setTimeout(rsz,60);window.addEventListener('resize',rsz);
   cam.position.z=40;
-  const COUNT=110,pts=[],vel=[];
+  const COUNT=150,pts=[],vel=[];
   for(let i=0;i<COUNT;i++){pts.push(new THREE.Vector3((Math.random()-.5)*90,(Math.random()-.5)*60,(Math.random()-.5)*20-5));vel.push(new THREE.Vector3((Math.random()-.5)*.025,(Math.random()-.5)*.025,0));}
   const dotGeo=new THREE.BufferGeometry(),dotPos=new Float32Array(COUNT*3);
   pts.forEach((p,i)=>{dotPos[i*3]=p.x;dotPos[i*3+1]=p.y;dotPos[i*3+2]=p.z;});
   dotGeo.setAttribute('position',new THREE.BufferAttribute(dotPos,3));
-  scene.add(new THREE.Points(dotGeo,new THREE.PointsMaterial({color:0x0A66C2,size:0.5,transparent:true,opacity:0.6})));
-  const MAXL=200,lpos=new Float32Array(MAXL*6),lgeo=new THREE.BufferGeometry();
+  scene.add(new THREE.Points(dotGeo,new THREE.PointsMaterial({color:0x1a7fd4,size:0.65,transparent:true,opacity:0.75})));
+  const MAXL=280,lpos=new Float32Array(MAXL*6),lgeo=new THREE.BufferGeometry();
   lgeo.setAttribute('position',new THREE.BufferAttribute(lpos,3));lgeo.setDrawRange(0,0);
-  scene.add(new THREE.LineSegments(lgeo,new THREE.LineBasicMaterial({color:0x0A66C2,transparent:true,opacity:0.15})));
+  scene.add(new THREE.LineSegments(lgeo,new THREE.LineBasicMaterial({color:0x1a7fd4,transparent:true,opacity:0.25})));
   let mx=0,my=0,sf=0,_heroPaused=false;
   document.addEventListener('visibilitychange',()=>{_heroPaused=document.hidden;});
   document.addEventListener('mousemove',e=>{mx=(e.clientX/window.innerWidth-.5)*2;my=-(e.clientY/window.innerHeight-.5)*2;});
@@ -486,7 +494,7 @@ footer{padding:22px 64px;border-top:1px solid var(--bdr);display:flex;align-item
     pts.forEach((p,i)=>{p.x+=vel[i].x;p.y+=vel[i].y;if(Math.abs(p.x)>54)vel[i].x*=-1;if(Math.abs(p.y)>38)vel[i].y*=-1;dotPos[i*3]=p.x;dotPos[i*3+1]=p.y;dotPos[i*3+2]=p.z;});
     dotGeo.attributes.position.needsUpdate=true;
     let lc=0;
-    for(let i=0;i<COUNT&&lc<MAXL;i++){for(let j=i+1;j<COUNT&&lc<MAXL;j++){const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y;if(Math.sqrt(dx*dx+dy*dy)<16){lpos[lc*6]=pts[i].x;lpos[lc*6+1]=pts[i].y;lpos[lc*6+2]=pts[i].z;lpos[lc*6+3]=pts[j].x;lpos[lc*6+4]=pts[j].y;lpos[lc*6+5]=pts[j].z;lc++;}}}
+    for(let i=0;i<COUNT&&lc<MAXL;i++){for(let j=i+1;j<COUNT&&lc<MAXL;j++){const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y;if(Math.sqrt(dx*dx+dy*dy)<20){lpos[lc*6]=pts[i].x;lpos[lc*6+1]=pts[i].y;lpos[lc*6+2]=pts[i].z;lpos[lc*6+3]=pts[j].x;lpos[lc*6+4]=pts[j].y;lpos[lc*6+5]=pts[j].z;lc++;}}}
     lgeo.setDrawRange(0,lc*2);lgeo.attributes.position.needsUpdate=true;
     renderer.render(scene,cam);
   })();
