@@ -336,7 +336,7 @@ footer{padding:22px 64px;border-top:1px solid var(--bdr);display:flex;align-item
   <div class="what-g">
     <div class="w-l s3d-l">
       <div class="lbl">What Is Social Commerce</div>
-      <h2>Word of mouth,<br>but at scale.</h2>
+      <h2>Not an ad.<br>A recommendation.</h2>
       <p>Social commerce is what happens when real people — creators, influencers, everyday users — recommend a product to their audience, and that audience buys it <em>instantly, without ever leaving the app.</em> No search. No ad. Just trust, distributed at scale.</p>
     </div>
     <div class="w-r">
@@ -430,7 +430,7 @@ footer{padding:22px 64px;border-top:1px solid var(--bdr);display:flex;align-item
 <section class="sec sec-alt bdt" id="s-halo">
   <div class="s3d" style="text-align:center;margin-bottom:0;">
     <div class="lbl" style="justify-content:center;">The Halo Effect</div>
-    <h2 class="sh" style="text-align:center;max-width:none;">The right creator doesn't just reach your audience.<br>They convert it.</h2>
+    <h2 class="sh" style="text-align:center;max-width:none;">The brands winning aren't running more ads.<br>They're building trust at scale.</h2>
   </div>
   <div class="sphere-wrap" id="sphere-wrap">
     <canvas id="halo-canvas"></canvas>
@@ -475,39 +475,52 @@ footer{padding:22px 64px;border-top:1px solid var(--bdr);display:flex;align-item
   setTimeout(resize,60);window.addEventListener('resize',resize);
   document.addEventListener('visibilitychange',()=>{paused=document.hidden;});
 
-  /* lines: yStart/yEnd = vertical range (0=top,1=bottom), wave params, speed */
+  /* lines: steep upward graph — low wave, strong trend, area fill on main */
   const lines=[
-    {yStart:0.90,yEnd:0.28,f:0.55,amp:0.045,spd:0.55,op:0.22,lw:2.0},
-    {yStart:0.95,yEnd:0.50,f:0.70,amp:0.035,spd:0.40,op:0.14,lw:1.5},
-    {yStart:0.98,yEnd:0.68,f:0.40,amp:0.050,spd:0.65,op:0.09,lw:1.5},
+    {yStart:0.88,yEnd:0.12,f:0.4,amp:0.018,spd:0.6,op:0.28,lw:2.0,fill:true},
+    {yStart:0.93,yEnd:0.38,f:0.5,amp:0.014,spd:0.42,op:0.15,lw:1.5,fill:false},
+    {yStart:0.97,yEnd:0.60,f:0.3,amp:0.020,spd:0.70,op:0.08,lw:1.5,fill:false},
   ];
 
   (function draw(){
     requestAnimationFrame(draw);
     if(paused||!W)return;
-    t+=0.012;
+    t+=0.014;
     ctx.clearRect(0,0,W,H);
 
     lines.forEach(l=>{
-      /* left-fade gradient */
+      /* build path first so we can both stroke + fill */
+      const pts=[];
+      for(let px=0;px<=W;px++){
+        const p=px/W;
+        const trend=l.yStart+(l.yEnd-l.yStart)*p;
+        const wave=Math.sin(p*l.f*Math.PI*2-t*l.spd)*l.amp;
+        pts.push({x:px,y:(trend+wave)*H});
+      }
+
+      /* area fill on main line only */
+      if(l.fill){
+        ctx.beginPath();
+        pts.forEach((pt,i)=>i===0?ctx.moveTo(pt.x,pt.y):ctx.lineTo(pt.x,pt.y));
+        ctx.lineTo(W,H);ctx.lineTo(0,H);ctx.closePath();
+        const fg=ctx.createLinearGradient(0,0,0,H);
+        fg.addColorStop(0,`rgba(10,102,194,0.10)`);
+        fg.addColorStop(1,`rgba(10,102,194,0.00)`);
+        ctx.fillStyle=fg;
+        ctx.fill();
+      }
+
+      /* stroke line */
       const grad=ctx.createLinearGradient(0,0,W,0);
       grad.addColorStop(0,`rgba(10,102,194,0)`);
-      grad.addColorStop(0.15,`rgba(10,102,194,${l.op})`);
+      grad.addColorStop(0.12,`rgba(10,102,194,${l.op})`);
       grad.addColorStop(1,`rgba(10,102,194,${l.op})`);
-
       ctx.beginPath();
       ctx.strokeStyle=grad;
       ctx.lineWidth=l.lw;
       ctx.lineJoin='round';
       ctx.lineCap='round';
-
-      for(let px=0;px<=W;px++){
-        const p=px/W;                              /* 0→1 left to right */
-        const trend=l.yStart+(l.yEnd-l.yStart)*p; /* linear upward trend */
-        const wave=Math.sin(p*l.f*Math.PI*2-t*l.spd)*l.amp; /* smooth sine, time-shifted */
-        const y=(trend+wave)*H;
-        px===0?ctx.moveTo(px,y):ctx.lineTo(px,y);
-      }
+      pts.forEach((pt,i)=>i===0?ctx.moveTo(pt.x,pt.y):ctx.lineTo(pt.x,pt.y));
       ctx.stroke();
     });
   })();
