@@ -478,7 +478,8 @@ footer{padding:22px 64px;border-top:1px solid var(--bdr);display:flex;align-item
   window.addEventListener('scroll',()=>{sf=Math.min(1,window.scrollY/(c.parentElement.offsetHeight||720));},{passive:true});
   (function loop(){
     requestAnimationFrame(loop);
-    if(_heroPaused)return;+=(mx*4-cam.position.x)*.03;
+    if(_heroPaused)return;
+    cam.position.x+=(mx*4-cam.position.x)*.03;
     cam.position.y+=(my*2.5-cam.position.y)*.03;
     cam.position.z=40+sf*24;
     cam.lookAt(scene.position);
