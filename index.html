@@ -311,8 +311,8 @@ footer{padding:22px 64px;border-top:1px solid var(--bdr);display:flex;align-item
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;">
     <div class="s3d-l">
       <div class="lbl">Who I Am</div>
-      <h2 class="sh">I don't consult on social commerce. I run it.</h2>
-      <p style="font-size:14px;color:var(--muted);line-height:1.8;font-weight:300;margin-top:16px;">I'm Mason Bertrand. I build TikTok Shop programs, creator affiliate systems, and live shopping operations at product brands — from scratch, not from a deck. Most content about social commerce is theory. <em style="color:var(--text);font-style:normal;font-weight:500;">I share what's actually working because I'm still in the work every day.</em></p>
+      <h2 class="sh">A decade in. Still building.</h2>
+      <p style="font-size:14px;color:var(--muted);line-height:1.8;font-weight:300;margin-top:16px;">I'm Mason Bertrand — a decade in digital marketing, most of it spent inside brands building social commerce from the ground up. I've scaled programs to seven-figure monthly revenue, worked inside a nine-figure brand, and currently lead creator partnerships and organic social at one of the most recognized names in everyday carry. I share what I'm learning in real time — <em style="color:var(--text);font-style:normal;font-weight:500;">not playbooks written after the fact.</em></p>
     </div>
     <div class="s3d d1">
       <div class="lbl" style="margin-bottom:24px;">Brands I've scaled</div>
@@ -336,26 +336,26 @@ footer{padding:22px 64px;border-top:1px solid var(--bdr);display:flex;align-item
   <div class="what-g">
     <div class="w-l s3d-l">
       <div class="lbl">What Is Social Commerce</div>
-      <h2>Not advertising.<br>Real results at scale.</h2>
-      <p>When a creator, affiliate, or influencer recommends your product to their audience — and that audience buys it <em>without ever leaving the platform</em> — that's social commerce. The conversion rates, acquisition costs, and compounding potential look like nothing else in digital marketing.</p>
+      <h2>Word of mouth,<br>but at scale.</h2>
+      <p>Social commerce is what happens when real people — creators, influencers, everyday users — recommend a product to their audience, and that audience buys it <em>instantly, without ever leaving the app.</em> No search. No ad. Just trust, distributed at scale.</p>
     </div>
     <div class="w-r">
       <div class="dc s3d d1">
-        <div class="dc-era">Then</div>
+        <div class="dc-era">Old model</div>
         <div class="dc-t">Traditional advertising</div>
-        <div class="dc-b">You pay to interrupt someone. They skip it. You get a bill. They forget your brand.</div>
+        <div class="dc-b">You pay to interrupt someone mid-scroll. They skip it. They forget your brand. You get the bill.</div>
         <div class="dc-bar dc-bar--bad"><span></span></div>
       </div>
       <div class="dc s3d d2">
-        <div class="dc-era">Better, but limited</div>
+        <div class="dc-era">Closer</div>
         <div class="dc-t">One-off influencer post</div>
-        <div class="dc-b">One sponsored post, one spike, then silence. No system. No compounding.</div>
+        <div class="dc-b">One post, one spike, then silence. Better than ads — but still not a system.</div>
         <div class="dc-bar dc-bar--mid"><span></span></div>
       </div>
       <div class="dc dc--good s3d d3">
         <div class="dc-era dc-era--good">Now</div>
         <div class="dc-t">Social commerce</div>
-        <div class="dc-b">Real people with real audiences recommend your product — daily, at scale — and their followers <em>buy it on the spot.</em></div>
+        <div class="dc-b">Creators your audience already trusts recommend your product — and their followers buy it <em>without ever leaving the app.</em> Daily. At scale. Compounding.</div>
         <div class="dc-bar dc-bar--good"><span></span></div>
       </div>
     </div>
@@ -477,15 +477,15 @@ footer{padding:22px 64px;border-top:1px solid var(--bdr);display:flex;align-item
 
   /* lines: yStart/yEnd = vertical range (0=top,1=bottom), wave params, speed */
   const lines=[
-    {yStart:0.90,yEnd:0.28,f:0.55,amp:0.032,spd:0.22,op:0.20,lw:2.0},
-    {yStart:0.95,yEnd:0.50,f:0.70,amp:0.025,spd:0.16,op:0.13,lw:1.5},
-    {yStart:0.98,yEnd:0.68,f:0.40,amp:0.038,spd:0.28,op:0.08,lw:1.5},
+    {yStart:0.90,yEnd:0.28,f:0.55,amp:0.045,spd:0.55,op:0.22,lw:2.0},
+    {yStart:0.95,yEnd:0.50,f:0.70,amp:0.035,spd:0.40,op:0.14,lw:1.5},
+    {yStart:0.98,yEnd:0.68,f:0.40,amp:0.050,spd:0.65,op:0.09,lw:1.5},
   ];
 
   (function draw(){
     requestAnimationFrame(draw);
     if(paused||!W)return;
-    t+=0.006;
+    t+=0.012;
     ctx.clearRect(0,0,W,H);
 
     lines.forEach(l=>{
