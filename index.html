@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Mason Bertrand — Social Commerce strategist. Building affiliate, creator, and influencer programs across TikTok, Instagram, YouTube, and Facebook.">
+<title>Mason Bertrand · Social Commerce</title>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{--bg:#090D12;--bg2:#0F1620;--bg3:#141E2A;--li:#0A66C2;--li2:#70B5F9;--li3:rgba(10,102,194,0.1);--text:#E8EAED;--muted:#7A8694;--dim:#2A3646;--bdr:rgba(255,255,255,0.055);--bdr2:rgba(10,102,194,0.22);}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,'SF Pro Display',BlinkMacSystemFont,'Segoe UI',sans-serif;overflow-x:hidden;}
+nav{display:flex;align-items:center;justify-content:space-between;padding:22px 64px;position:relative;z-index:50;}
+.n-logo{display:flex;align-items:center;gap:9px;}
+.n-in{width:24px;height:24px;background:var(--li);border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:#fff;}
+.n-name{font-size:13px;font-weight:600;color:var(--muted);}
+.n-cta{font-size:11px;font-weight:700;padding:8px 18px;background:transparent;color:var(--li2);border:1px solid var(--bdr2);border-radius:20px;text-decoration:none;letter-spacing:0.04em;transition:all 0.2s;cursor:pointer;}
+.n-cta:hover{background:var(--li3);}
+.hero{position:relative;min-height:720px;display:flex;flex-direction:column;justify-content:center;overflow:hidden;padding:0 64px;}
+#bg3d{position:absolute;inset:0;z-index:0;}
+.hero-body{position:relative;z-index:10;max-width:780px;}
+.h-eye{font-size:11px;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--li2);margin-bottom:28px;display:flex;align-items:center;gap:10px;opacity:0;animation:heroUp 0.5s 0.1s both;}
+.h-eye::before{content:'';width:22px;height:1px;background:var(--li2);}
+h1.hh{font-size:clamp(48px,7vw,92px);font-weight:800;line-height:0.93;letter-spacing:-0.05em;opacity:0;animation:heroUp 0.7s 0.22s both;}
+h1.hh .ac{color:var(--li2);}h1.hh .gh{color:var(--dim);}
+.h-rule{width:56px;height:2px;background:var(--li);margin:36px 0;opacity:0;animation:heroUp 0.4s 0.5s both;}
+.h-sub{font-size:clamp(15px,1.6vw,19px);font-weight:300;color:var(--muted);line-height:1.6;max-width:500px;opacity:0;animation:heroUp 0.6s 0.6s both;}
+.h-sub em{color:var(--text);font-style:normal;font-weight:500;}
+@keyframes heroUp{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
+.progress-bar{position:fixed;top:0;left:0;width:0%;height:2px;background:var(--li);z-index:200;pointer-events:none;}
+.s3d{opacity:0;transform:perspective(1000px) rotateX(22deg) translateY(48px) translateZ(-60px);transition:opacity 0.75s ease,transform 0.75s ease;transform-origin:top center;}
+.s3d.in{opacity:1;transform:perspective(1000px) rotateX(0deg) translateY(0) translateZ(0);}
+.s3d.d1{transition-delay:0.08s;}.s3d.d2{transition-delay:0.18s;}.s3d.d3{transition-delay:0.28s;}.s3d.d4{transition-delay:0.38s;}
+.s3d-l{opacity:0;transform:perspective(1000px) rotateY(-28deg) translateX(-60px) translateZ(-40px);transition:opacity 0.7s ease,transform 0.7s ease;transform-origin:left center;}
+.s3d-l.in{opacity:1;transform:perspective(1000px) rotateY(0) translateX(0) translateZ(0);}
+.sec{padding:88px 64px;}.sec-alt{background:var(--bg2);}.bdt{border-top:1px solid var(--bdr);}
+.lbl{font-size:10px;font-weight:800;letter-spacing:0.22em;text-transform:uppercase;color:var(--li);margin-bottom:40px;display:flex;align-items:center;gap:10px;}
+.lbl::before{content:'';width:16px;height:1px;background:var(--li);}
+h2.sh{font-size:clamp(28px,3vw,42px);font-weight:800;letter-spacing:-0.04em;line-height:1.05;margin-bottom:16px;}
+.what-g{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start;}
+.w-l h2{font-size:clamp(28px,3.2vw,44px);font-weight:800;letter-spacing:-0.04em;line-height:1.0;margin-bottom:20px;}
+.w-l p{font-size:14px;color:var(--muted);line-height:1.8;font-weight:300;}
+.w-l p em{color:var(--text);font-style:normal;font-weight:500;}
+.w-r{display:flex;flex-direction:column;gap:2px;}
+.dc{padding:22px 26px;border:1px solid var(--bdr);border-bottom:none;cursor:default;transition:all 0.25s;position:relative;overflow:hidden;}
+.dc:last-child{border-bottom:1px solid var(--bdr);}
+.dc::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--li);transform:scaleY(0);transform-origin:bottom;transition:transform 0.3s;}
+.dc:hover::before{transform:scaleY(1);}
+.dc:hover{background:var(--bg2);padding-left:32px;}
+.dc-t{font-size:13px;font-weight:700;margin-bottom:5px;transition:color 0.2s;}
+.dc:hover .dc-t{color:var(--li2);}
+.dc-b{font-size:12px;color:var(--muted);line-height:1.6;}
+.dc-b em{color:var(--text);font-style:normal;}
+.why-g{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--bdr);margin-top:48px;}
+.wc{background:var(--bg2);padding:36px 32px;cursor:default;position:relative;overflow:hidden;transform-style:preserve-3d;}
+.wc::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--li);transform:scaleX(0);transform-origin:left;transition:transform 0.4s;}
+.wc:hover::after{transform:scaleX(1);}
+.wc-h{font-size:17px;font-weight:800;letter-spacing:-0.02em;line-height:1.2;margin-bottom:12px;}
+.wc-b{font-size:12px;color:var(--muted);line-height:1.75;}
+.wc-b em{color:var(--text);font-style:normal;}
+.sphere-wrap{position:relative;height:560px;margin-top:16px;cursor:grab;user-select:none;}
+.sphere-wrap:active{cursor:grabbing;}
+#halo-canvas{position:absolute;inset:0;width:100%;height:100%;}
+.sl{position:absolute;pointer-events:none;transform:translate(-50%,-50%);opacity:0;transition:opacity 0.5s;}
+.sl-text{font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#fff;padding:6px 14px;background:#0A66C2;border-radius:4px;white-space:nowrap;line-height:1;display:block;}
+.sl-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:11px;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;color:var(--li2);text-align:center;pointer-events:none;line-height:1.5;z-index:2;opacity:0;transition:opacity 0.6s 0.3s;}
+.sl-center.show{opacity:1;}
+.sphere-hint{font-size:10px;color:var(--dim);letter-spacing:0.1em;text-transform:uppercase;text-align:center;margin-top:16px;}
+.plat-row{display:flex;gap:0;border:1px solid var(--bdr);margin-top:48px;}
+.pi{flex:1;padding:32px 20px;border-right:1px solid var(--bdr);cursor:default;transition:all 0.28s;position:relative;overflow:hidden;}
+.pi:last-child{border-right:none;}
+.pi::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--li);transform:scaleX(0);transform-origin:left;transition:transform 0.35s;}
+.pi:hover::after{transform:scaleX(1);}
+.pi:hover{background:var(--bg3);}
+.pi:hover .pi-name{color:var(--li2);}
+.pi-icon{margin-bottom:16px;}.pi-name{font-size:14px;font-weight:700;margin-bottom:6px;letter-spacing:-0.01em;transition:color 0.25s;}
+.pi-body{font-size:11px;color:var(--muted);line-height:1.6;}
+.gap-in{max-width:760px;}
+.gap-in blockquote{font-size:clamp(20px,2.6vw,30px);font-weight:300;line-height:1.5;color:var(--muted);letter-spacing:-0.01em;padding-left:24px;border-left:2px solid var(--li);margin-bottom:32px;}
+.gap-in blockquote em{color:var(--text);font-style:normal;font-weight:500;}
+.gap-in p{font-size:14px;color:var(--muted);line-height:1.85;font-weight:300;}
+.gap-in p em{color:var(--text);font-style:normal;font-weight:500;}
+.mason-g{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.m-l h2{font-size:clamp(28px,3vw,40px);font-weight:800;letter-spacing:-0.04em;line-height:1.05;margin-bottom:18px;}
+.m-l p{font-size:14px;color:var(--muted);line-height:1.8;font-weight:300;}
+.m-l p em{color:var(--text);font-style:normal;font-weight:500;}
+.conn{padding:112px 64px;text-align:center;border-top:1px solid var(--bdr);position:relative;overflow:hidden;}
+.cr{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);border-radius:50%;border:1px solid var(--bdr2);pointer-events:none;}
+.cr.r1{width:200px;height:200px;}.cr.r2{width:380px;height:380px;border-color:rgba(10,102,194,0.08);}.cr.r3{width:560px;height:560px;border-color:rgba(10,102,194,0.04);}
+.ci{position:relative;z-index:2;}
+.ci .lbl{justify-content:center;}
+.c-t{font-size:clamp(28px,3.2vw,44px);font-weight:800;letter-spacing:-0.04em;line-height:1.05;margin-bottom:14px;}
+.c-s{font-size:14px;color:var(--muted);line-height:1.7;max-width:380px;margin:0 auto 32px;font-weight:300;}
+.c-s em{color:var(--text);font-style:normal;font-weight:500;}
+.btn-li{padding:12px 32px;background:var(--li);color:#fff;font-weight:700;font-size:13px;border-radius:20px;text-decoration:none;letter-spacing:0.02em;transition:all 0.2s;cursor:pointer;display:inline-block;border:none;}
+.btn-li:hover{background:#0952A0;transform:translateY(-2px);}
+.c-sub2{font-size:11px;color:var(--dim);margin-top:14px;}
+footer{padding:26px 64px;border-top:1px solid var(--bdr);display:flex;align-items:center;justify-content:space-between;}
+.fc{font-size:11px;color:var(--dim);}
+
+@media(max-width:768px){
+  nav{padding:18px 28px;}.n-name{display:none;}
+  .hero{min-height:580px;padding:0 28px;}
+  .h-sub{font-size:15px;}.h-rule{margin:24px 0;}
+  .sec{padding:64px 28px;}
+  .what-g,.mason-g{grid-template-columns:1fr;gap:40px;}
+  .why-g{grid-template-columns:1fr;margin-top:36px;}
+  .plat-row{flex-wrap:wrap;}
+  .pi{flex:0 0 50%;border-bottom:1px solid var(--bdr);}
+  .pi:nth-child(odd){border-right:1px solid var(--bdr);}
+  .pi:nth-child(even){border-right:none;}
+  .pi:nth-last-child(-n+2){border-bottom:none;}
+  .sphere-wrap{height:440px;}
+  .sl-text{font-size:10px;padding:5px 11px;}
+  .conn{padding:80px 28px;}.c-s{max-width:100%;}
+  footer{padding:24px 28px;}
+  .wc{transform:none !important;}
+}
+@media(max-width:480px){
+  nav{padding:16px 20px;}
+  .hero{min-height:520px;padding:0 20px;}.h-eye{font-size:9px;letter-spacing:0.16em;}.h-rule{width:40px;}
+  .sec{padding:52px 20px;}.lbl{margin-bottom:28px;}
+  .w-l h2{font-size:clamp(26px,8vw,36px);}
+  .s3d{transform:translateY(24px);}.s3d.in{transform:translateY(0);}
+  .s3d-l{transform:translateY(24px);}.s3d-l.in{transform:translateY(0);}
+  .pi{flex:0 0 100%;border-right:none;border-bottom:1px solid var(--bdr);}.pi:last-child{border-bottom:none;}
+  .sphere-wrap{height:380px;}.sl-text{font-size:9px;padding:4px 9px;letter-spacing:0.07em;}.sl-center{font-size:9px;}.sphere-hint{font-size:9px;}
+  .wc{padding:28px 22px;}.wc-h{font-size:15px;}
+  .dc{padding:18px 20px;}.dc:hover{padding-left:24px;}
+  .conn{padding:64px 20px;}.c-sub2{display:none;}
+  footer{padding:20px;flex-direction:column;gap:8px;text-align:center;}
+}
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="pbar"></div>
+
+<nav>
+  <div class="n-logo">
+    <div class="n-in">in</div>
+    <div class="n-name">Mason Bertrand</div>
+  </div>
+  <!-- ↓ Replace # with your LinkedIn URL -->
+  <a href="https://www.linkedin.com/in/YOUR-LINKEDIN-HANDLE" class="n-cta" target="_blank" rel="noopener">Connect on LinkedIn</a>
+</nav>
+
+<section class="hero">
+  <canvas id="bg3d"></canvas>
+  <div class="hero-body">
+    <div class="h-eye">Mason Bertrand · Social Commerce</div>
+    <h1 class="hh">Your customers<br>already <span class="ac">discovered</span><br>your <span class="gh">competitor.</span></h1>
+    <div class="h-rule"></div>
+    <p class="h-sub">Social commerce is the fastest-growing revenue channel. <em>Most brands aren't in it yet.</em></p>
+  </div>
+</section>
+
+<section class="sec bdt" id="s-what">
+  <div class="what-g">
+    <div class="w-l s3d-l">
+      <div class="lbl">What Is Social Commerce</div>
+      <h2>Not advertising.<br>Trust at scale.</h2>
+      <p>When a creator, affiliate, or influencer your audience already follows recommends your product — and they buy it in that same moment — <em>that's social commerce.</em> The conversion rates, acquisition costs, and compounding potential look like nothing else in digital marketing.</p>
+    </div>
+    <div class="w-r">
+      <div class="dc s3d d1">
+        <div class="dc-t">Traditional advertising</div>
+        <div class="dc-b">You pay to interrupt someone. They skip it. <em>You get a bill. They forget your brand.</em></div>
+      </div>
+      <div class="dc s3d d2">
+        <div class="dc-t">One-off influencer post</div>
+        <div class="dc-b">One sponsored post, one spike, then silence. <em>No repeat, no system, no compounding.</em></div>
+      </div>
+      <div class="dc s3d d3">
+        <div class="dc-t">Social commerce</div>
+        <div class="dc-b">Real people with real audiences recommend your product — daily, at scale — and their followers <em>buy it on the spot.</em></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-alt bdt" id="s-why">
+  <div class="s3d">
+    <div class="lbl">Why It Matters Now</div>
+    <h2 class="sh">Consumer attention moved.<br>Most brand budgets haven't.</h2>
+  </div>
+  <div class="why-g">
+    <div class="wc s3d d1">
+      <div class="wc-h">Attention has already moved</div>
+      <div class="wc-b">People discover products on social. That happens whether or not your brand is part of it. <em>Sitting out benefits your competitors.</em></div>
+    </div>
+    <div class="wc s3d d2">
+      <div class="wc-h">The window is still open</div>
+      <div class="wc-b">Most categories aren't locked up yet. Brands that build creator relationships now <em>will be very hard to displace later.</em></div>
+    </div>
+    <div class="wc s3d d3">
+      <div class="wc-h">The economics are unlike anything else</div>
+      <div class="wc-b">Affiliates only get paid when you do. A single creator video can drive thousands of purchases with <em>no media spend behind it.</em></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec bdt" id="s-halo">
+  <div class="s3d" style="text-align:center;margin-bottom:0;">
+    <div class="lbl" style="justify-content:center;">The Halo Effect</div>
+    <h2 class="sh" style="text-align:center;max-width:none;">The revenue doesn't stay on social.</h2>
+  </div>
+  <div class="sphere-wrap" id="sphere-wrap">
+    <canvas id="halo-canvas"></canvas>
+    <div class="sl" id="sl-0"><div class="sl-text">Amazon &amp; Retail</div></div>
+    <div class="sl" id="sl-1"><div class="sl-text">Branded Search</div></div>
+    <div class="sl" id="sl-2"><div class="sl-text">Paid Ads</div></div>
+    <div class="sl" id="sl-3"><div class="sl-text">Direct Revenue</div></div>
+    <div class="sl-center" id="sl-center">Social<br>Commerce</div>
+  </div>
+  <p class="sphere-hint s3d">Drag to rotate</p>
+</section>
+
+<section class="sec sec-alt bdt" id="s-plat">
+  <div class="s3d">
+    <div class="lbl">Where It Lives</div>
+    <h2 class="sh">Every platform your<br>audience already is.</h2>
+  </div>
+  <div class="plat-row">
+    <div class="pi s3d d1">
+      <div class="pi-icon"><svg width="30" height="30" viewBox="0 0 30 30" fill="none"><rect width="30" height="30" rx="6" fill="#010101"/><path d="M16 5.5h2.8a5.2 5.2 0 003.7 3.7v2.8a8 8 0 01-3.7-1V17a4.8 4.8 0 11-4.8-4.8 4.8 4.8 0 01.9.08v2.9a2.3 2.3 0 100 4.1 2.3 2.3 0 001.9-2.3V5.5z" fill="white"/></svg></div>
+      <div class="pi-name">TikTok</div>
+      <div class="pi-body">The most powerful product discovery engine ever built.</div>
+    </div>
+    <div class="pi s3d d2">
+      <div class="pi-icon"><svg width="30" height="30" viewBox="0 0 30 30" fill="none"><rect width="30" height="30" rx="6" fill="url(#ig3)"/><defs><linearGradient id="ig3" x1="0" y1="30" x2="30" y2="0"><stop offset="0%" stop-color="#F58529"/><stop offset="50%" stop-color="#DD2A7B"/><stop offset="100%" stop-color="#8134AF"/></linearGradient></defs><rect x="7" y="7" width="16" height="16" rx="4" stroke="white" stroke-width="1.5" fill="none"/><circle cx="15" cy="15" r="4" stroke="white" stroke-width="1.5" fill="none"/><circle cx="20" cy="10" r="1" fill="white"/></svg></div>
+      <div class="pi-name">Instagram</div>
+      <div class="pi-body">Aspirational brands meet high-intent lifestyle audiences.</div>
+    </div>
+    <div class="pi s3d d3">
+      <div class="pi-icon"><svg width="30" height="30" viewBox="0 0 30 30" fill="none"><rect width="30" height="30" rx="6" fill="#FF0000"/><path d="M22.5 10.5a2 2 0 00-1.5-1.5C19.7 8.7 15 8.7 15 8.7s-4.7 0-6 .3a2 2 0 00-1.5 1.5C7.2 12 7.2 15 7.2 15s0 3 .3 4.5a2 2 0 001.5 1.5c1.3.3 6 .3 6 .3s4.7 0 6-.3a2 2 0 001.5-1.5c.3-1.5.3-4.5.3-4.5s0-3-.3-4.5z" fill="white"/><polygon points="12.8,18 18.3,15 12.8,12" fill="#FF0000"/></svg></div>
+      <div class="pi-name">YouTube</div>
+      <div class="pi-body">Reviews and tutorials with the deepest purchase intent.</div>
+    </div>
+    <div class="pi s3d d4">
+      <div class="pi-icon"><svg width="30" height="30" viewBox="0 0 30 30" fill="none"><rect width="30" height="30" rx="6" fill="#1877F2"/><path d="M17 16h1.8l.4-2.8H17v-1c0-.8.4-1.3 1.4-1.3H19.2V8.6a18 18 0 00-2.3-.2c-2.4 0-3.9 1.5-3.9 4.1v1.5H11V16h2v6.5h3V16z" fill="white"/></svg></div>
+      <div class="pi-name">Facebook</div>
+      <div class="pi-body">Niche communities making purchasing decisions together.</div>
+    </div>
+  </div>
+</section>
+
+<section class="sec bdt" id="s-gap">
+  <div class="gap-in">
+    <div class="s3d"><div class="lbl">The Gap</div></div>
+    <blockquote class="s3d-l">Most brands have <em>heard about</em> social commerce.<br>Very few have built the infrastructure to capture it.</blockquote>
+    <p class="s3d d1">The brands sitting out aren't just missing revenue today — they're letting competitors lock in creator relationships, platform trust, and audience habits that compound over time. The halo lifts Amazon, search, and paid channels too. <em>The window is open. It won't be forever.</em></p>
+  </div>
+</section>
+
+<section class="sec sec-alt bdt" id="s-mason">
+  <div class="s3d-l" style="max-width:620px;">
+    <div class="lbl">Who I Am</div>
+    <h2 style="font-size:clamp(28px,3vw,40px);font-weight:800;letter-spacing:-0.04em;line-height:1.05;margin-bottom:18px;">I've been building inside this space for years.</h2>
+    <p style="font-size:14px;color:var(--muted);line-height:1.8;font-weight:300;">I'm Mason Bertrand — an operator, not a consultant. I've built social commerce programs from scratch across creators, affiliates, and influencers on every major platform, and I understand <em style="color:var(--text);font-style:normal;font-weight:500;">why most brands get this wrong</em> and what it looks like when it's done right.</p>
+  </div>
+</section>
+
+<section class="conn">
+  <div class="cr r1"></div><div class="cr r2"></div><div class="cr r3"></div>
+  <div class="ci s3d">
+    <div class="lbl">Let's Talk</div>
+    <div class="c-t">Still figuring out where<br>social commerce fits?</div>
+    <p class="c-s">I write and talk about this regularly. If you want to understand <em>what's real and what's hype</em> — let's connect.</p>
+    <!-- ↓ Replace # with your LinkedIn URL -->
+    <a href="https://www.linkedin.com/in/YOUR-LINKEDIN-HANDLE" class="btn-li" target="_blank" rel="noopener">Connect on LinkedIn</a>
+    <div class="c-sub2">No pitch. Just someone who knows this space well.</div>
+  </div>
+</section>
+
+<footer>
+  <div class="n-logo"><div class="n-in">in</div><div class="n-name">Mason Bertrand</div></div>
+  <div class="fc">© 2026 · Social Commerce</div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+/* ── HERO PARTICLE NETWORK ── */
+(function(){
+  const c=document.getElementById('bg3d');
+  if(!c||typeof THREE==='undefined')return;
+  const scene=new THREE.Scene(),cam=new THREE.PerspectiveCamera(60,2,0.1,200);
+  const renderer=new THREE.WebGLRenderer({canvas:c,alpha:true,antialias:true});
+  function rsz(){const w=c.parentElement.offsetWidth||900,h=c.parentElement.offsetHeight||720;renderer.setSize(w,h);cam.aspect=w/h;cam.updateProjectionMatrix();}
+  setTimeout(rsz,60);window.addEventListener('resize',rsz);
+  cam.position.z=40;
+  const COUNT=110,pts=[],vel=[];
+  for(let i=0;i<COUNT;i++){pts.push(new THREE.Vector3((Math.random()-.5)*90,(Math.random()-.5)*60,(Math.random()-.5)*20-5));vel.push(new THREE.Vector3((Math.random()-.5)*.025,(Math.random()-.5)*.025,0));}
+  const dotGeo=new THREE.BufferGeometry(),dotPos=new Float32Array(COUNT*3);
+  pts.forEach((p,i)=>{dotPos[i*3]=p.x;dotPos[i*3+1]=p.y;dotPos[i*3+2]=p.z;});
+  dotGeo.setAttribute('position',new THREE.BufferAttribute(dotPos,3));
+  scene.add(new THREE.Points(dotGeo,new THREE.PointsMaterial({color:0x0A66C2,size:0.5,transparent:true,opacity:0.6})));
+  const MAXL=200,lpos=new Float32Array(MAXL*6),lgeo=new THREE.BufferGeometry();
+  lgeo.setAttribute('position',new THREE.BufferAttribute(lpos,3));lgeo.setDrawRange(0,0);
+  scene.add(new THREE.LineSegments(lgeo,new THREE.LineBasicMaterial({color:0x0A66C2,transparent:true,opacity:0.15})));
+  let mx=0,my=0,sf=0;
+  document.addEventListener('mousemove',e=>{mx=(e.clientX/window.innerWidth-.5)*2;my=-(e.clientY/window.innerHeight-.5)*2;});
+  window.addEventListener('scroll',()=>{sf=Math.min(1,window.scrollY/(c.parentElement.offsetHeight||720));},{passive:true});
+  (function loop(){
+    requestAnimationFrame(loop);
+    cam.position.x+=(mx*4-cam.position.x)*.03;
+    cam.position.y+=(my*2.5-cam.position.y)*.03;
+    cam.position.z=40+sf*24;
+    cam.lookAt(scene.position);
+    pts.forEach((p,i)=>{p.x+=vel[i].x;p.y+=vel[i].y;if(Math.abs(p.x)>54)vel[i].x*=-1;if(Math.abs(p.y)>38)vel[i].y*=-1;dotPos[i*3]=p.x;dotPos[i*3+1]=p.y;dotPos[i*3+2]=p.z;});
+    dotGeo.attributes.position.needsUpdate=true;
+    let lc=0;
+    for(let i=0;i<COUNT&&lc<MAXL;i++){for(let j=i+1;j<COUNT&&lc<MAXL;j++){const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y;if(Math.sqrt(dx*dx+dy*dy)<16){lpos[lc*6]=pts[i].x;lpos[lc*6+1]=pts[i].y;lpos[lc*6+2]=pts[i].z;lpos[lc*6+3]=pts[j].x;lpos[lc*6+4]=pts[j].y;lpos[lc*6+5]=pts[j].z;lc++;}}}
+    lgeo.setDrawRange(0,lc*2);lgeo.attributes.position.needsUpdate=true;
+    renderer.render(scene,cam);
+  })();
+})();
+
+/* ── HALO SPHERE ── */
+(function(){
+  if(typeof THREE==='undefined')return;
+  const canvas=document.getElementById('halo-canvas');
+  const wrap=document.getElementById('sphere-wrap');
+  if(!canvas||!wrap)return;
+  const scene=new THREE.Scene();
+  const camera=new THREE.PerspectiveCamera(42,2,0.1,100);
+  const renderer=new THREE.WebGLRenderer({canvas,alpha:true,antialias:true});
+  camera.position.z=16;
+  function rsz(){const w=wrap.offsetWidth||800,h=wrap.offsetHeight||560;renderer.setSize(w,h);camera.aspect=w/h;camera.updateProjectionMatrix();}
+  setTimeout(rsz,80);window.addEventListener('resize',rsz);
+  const group=new THREE.Group();scene.add(group);
+  [2.0,1.35,0.8].forEach((r,i)=>{group.add(new THREE.Mesh(new THREE.IcosahedronGeometry(r,i===0?1:0),new THREE.MeshBasicMaterial({color:0x0A66C2,wireframe:true,transparent:true,opacity:[0.55,0.3,0.18][i]})));});
+  const shell=new THREE.Mesh(new THREE.IcosahedronGeometry(6.2,1),new THREE.MeshBasicMaterial({color:0x0A66C2,wireframe:true,transparent:true,opacity:0.04}));
+  group.add(shell);
+  [[0,0],[Math.PI/2.6,Math.PI/4],[Math.PI/1.7,Math.PI*.8]].forEach(([rx,ry])=>{
+    const ring=new THREE.Mesh(new THREE.TorusGeometry(6,0.022,8,90),new THREE.MeshBasicMaterial({color:0x70B5F9,transparent:true,opacity:0.13}));
+    ring.rotation.x=rx;ring.rotation.y=ry;group.add(ring);
+  });
+  const NODE_POS=[new THREE.Vector3(3.8,4.4,1.8),new THREE.Vector3(-5.0,2.2,-2.6),new THREE.Vector3(2.2,-4.8,-3.4),new THREE.Vector3(-2.8,-3.2,4.6)];
+  NODE_POS.forEach(p=>p.normalize().multiplyScalar(6));
+  const nodeEls=[0,1,2,3].map(i=>document.getElementById('sl-'+i));
+  const nodeMeshes=[],dotMeshes=[];
+  NODE_POS.forEach((pos,i)=>{
+    const nm=new THREE.Mesh(new THREE.OctahedronGeometry(0.28,0),new THREE.MeshBasicMaterial({color:0x70B5F9,transparent:true,opacity:0.95}));
+    nm.position.copy(pos);group.add(nm);nodeMeshes.push(nm);
+    const gr=new THREE.Mesh(new THREE.TorusGeometry(0.52,0.04,6,24),new THREE.MeshBasicMaterial({color:0x70B5F9,transparent:true,opacity:0.35}));
+    gr.position.copy(pos);group.add(gr);
+    group.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(0,0,0),pos.clone()]),new THREE.LineBasicMaterial({color:0x0A66C2,transparent:true,opacity:0.22})));
+    const dm=new THREE.Mesh(new THREE.SphereGeometry(0.1,6,6),new THREE.MeshBasicMaterial({color:0x70B5F9,transparent:true,opacity:0.9}));
+    group.add(dm);dotMeshes.push({mesh:dm,target:pos.clone()});
+  });
+  let isDrag=false,prevX=0,prevY=0,velX=0,velY=0,rotX=0,rotY=0;
+  canvas.addEventListener('mousedown',e=>{isDrag=true;prevX=e.clientX;prevY=e.clientY;canvas.style.cursor='grabbing';});
+  window.addEventListener('mousemove',e=>{if(!isDrag)return;velX=(e.clientX-prevX)*.013;velY=(e.clientY-prevY)*.013;rotY+=velX;rotX+=velY;prevX=e.clientX;prevY=e.clientY;});
+  window.addEventListener('mouseup',()=>{isDrag=false;canvas.style.cursor='grab';});
+  canvas.addEventListener('touchstart',e=>{const t=e.touches[0];isDrag=true;prevX=t.clientX;prevY=t.clientY;},{passive:true});
+  canvas.addEventListener('touchmove',e=>{e.preventDefault();const t=e.touches[0];velX=(t.clientX-prevX)*.013;velY=(t.clientY-prevY)*.013;rotY+=velX;rotX+=velY;prevX=t.clientX;prevY=t.clientY;},{passive:false});
+  canvas.addEventListener('touchend',()=>{isDrag=false;});
+  let buildP=0,building=false;
+  new IntersectionObserver(entries=>{
+    if(entries[0].isIntersecting&&!building){building=true;document.getElementById('sl-center')?.classList.add('show');}
+  },{threshold:0.2}).observe(document.getElementById('s-halo'));
+  function project(wp){const w=wrap.offsetWidth||800,h=wrap.offsetHeight||560;const v=wp.clone().project(camera);return{x:(v.x*.5+.5)*w,y:(-(v.y*.5)+.5)*h,z:v.z};}
+  function animate(t){
+    requestAnimationFrame(animate);
+    if(building&&buildP<1)buildP=Math.min(1,buildP+0.008);
+    if(!isDrag){velX*=0.96;velY*=0.96;rotY+=velX;rotX+=velY;rotY+=0.004;}else{velX*=0.5;velY*=0.5;}
+    rotX=Math.max(-1.3,Math.min(1.3,rotX));
+    group.rotation.y=rotY;group.rotation.x=rotX;
+    const pulse=1+Math.sin(t*.0012)*.045;
+    group.children[0].scale.setScalar(pulse*buildP);
+    group.children[1].scale.setScalar(pulse*.95*buildP);
+    group.children[2].scale.setScalar(buildP);
+    shell.material.opacity=0.04+Math.sin(t*.0008)*.015;
+    nodeMeshes.forEach((nm,i)=>{const np=Math.max(0,Math.min(1,(buildP-i*.15)*3));nm.scale.setScalar(np);});
+    dotMeshes.forEach((d,i)=>{const np=Math.max(0,Math.min(1,(buildP-i*.15)*3));const p=((t*.00028+i*.25)%1);d.mesh.position.lerpVectors(new THREE.Vector3(0,0,0),d.target,p);d.mesh.material.opacity=0.88*np;});
+    nodeEls.forEach((el,i)=>{
+      if(!el)return;
+      const wp=new THREE.Vector3();nodeMeshes[i].getWorldPosition(wp);
+      const sc=project(wp);
+      const np=Math.max(0,Math.min(1,(buildP-i*.15)*3));
+      const cx=wrap.offsetWidth/2,cy=wrap.offsetHeight/2;
+      const dx=sc.x-cx,dy=sc.y-cy,len=Math.sqrt(dx*dx+dy*dy)||1;
+      el.style.left=(sc.x+(dx/len)*32)+'px';
+      el.style.top=(sc.y+(dy/len)*32)+'px';
+      el.style.opacity=np;
+    });
+    renderer.render(scene,camera);
+  }
+  setTimeout(()=>requestAnimationFrame(animate),120);
+})();
+
+/* ── SCROLL ENGINE ── */
+(function(){
+  const pbar=document.getElementById('pbar');
+  document.querySelectorAll('.s3d,.s3d-l').forEach(el=>{
+    new IntersectionObserver(entries=>{
+      entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in');});
+    },{threshold:0.08,rootMargin:'0px 0px -50px 0px'}).observe(el);
+  });
+  window.addEventListener('scroll',()=>{
+    const total=document.body.scrollHeight-window.innerHeight;
+    if(pbar)pbar.style.width=(window.scrollY/total*100)+'%';
+    if(window.innerWidth>768){
+      const sec=document.getElementById('s-why');
+      if(sec){
+        const r=sec.getBoundingClientRect(),off=(r.top+r.height/2-window.innerHeight/2)/window.innerHeight;
+        sec.querySelectorAll('.wc').forEach((card,i)=>{
+          if(!card.dataset.hov){card.style.transform=`perspective(900px) rotateX(${-off*5}deg) rotateY(${off*9*(i===1?-1:1)}deg) translateZ(${Math.abs(off)*-8}px)`;card.style.transition='transform 0.4s ease';}
+        });
+      }
+    }
+  },{passive:true});
+  document.querySelectorAll('.wc').forEach(card=>{
+    card.addEventListener('mouseenter',()=>{card.dataset.hov='1';});
+    card.addEventListener('mouseleave',()=>{delete card.dataset.hov;card.style.transform='';card.style.transition='transform 0.6s ease';});
+    card.addEventListener('mousemove',e=>{
+      if(window.innerWidth<=768)return;
+      const r=card.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+      card.style.transform=`perspective(800px) rotateX(${-y*12}deg) rotateY(${x*12}deg) translateZ(10px)`;
+      card.style.transition='transform 0.06s';
+    });
+  });
+})();
+</script>
+</body>
+</html>
