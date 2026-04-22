@@ -261,6 +261,14 @@ footer{padding:26px 64px;border-top:1px solid var(--bdr);display:flex;align-item
   .pv:last-child{border-bottom:none;}
   .vis-big{font-size:clamp(44px,12vw,64px);}
 }
+
+.brand-logos{display:flex;flex-direction:column;gap:0;border:1px solid var(--bdr);}
+.brand-logo{padding:24px 28px;display:flex;align-items:center;transition:background 0.2s;cursor:default;}
+.brand-logo:hover{background:var(--bg3);}
+.brand-logo-divider{height:1px;background:var(--bdr);}
+@media(max-width:768px){
+  #s-mason>div{grid-template-columns:1fr !important;gap:40px !important;}
+}
 </style>
 </head>
 <body>
@@ -291,8 +299,25 @@ footer{padding:26px 64px;border-top:1px solid var(--bdr);display:flex;align-item
       <h2>Not advertising.<br>Trust at scale.</h2>
       <p>When a creator, affiliate, or influencer recommends your product to their audience — and that audience buys it <em>without ever leaving the platform</em> — that's social commerce. Most brands have heard of it. Very few have actually built the infrastructure to capture it.</p>
     </div>
-    <div class="flow-wrap s3d d1">
-      <canvas id="flow-canvas"></canvas>
+    <div class="w-r">
+      <div class="dc s3d d1">
+        <div class="dc-era">Then</div>
+        <div class="dc-t">Traditional advertising</div>
+        <div class="dc-b">You pay to interrupt someone. They skip it. You get a bill. They forget your brand.</div>
+        <div class="dc-bar dc-bar--bad"><span></span></div>
+      </div>
+      <div class="dc s3d d2">
+        <div class="dc-era">Getting closer</div>
+        <div class="dc-t">One-off influencer post</div>
+        <div class="dc-b">One sponsored post, one spike, then silence. No system. No compounding.</div>
+        <div class="dc-bar dc-bar--mid"><span></span></div>
+      </div>
+      <div class="dc dc--good s3d d3">
+        <div class="dc-era dc-era--good">Now</div>
+        <div class="dc-t">Social commerce</div>
+        <div class="dc-b">Creators and affiliates recommend your product to thousands of people — daily, in-platform — and they buy it <em>on the spot.</em></div>
+        <div class="dc-bar dc-bar--good"><span></span></div>
+      </div>
     </div>
   </div>
 </section>
@@ -301,26 +326,22 @@ footer{padding:26px 64px;border-top:1px solid var(--bdr);display:flex;align-item
   <div class="s3d">
     <div class="lbl">Why It Matters Now</div>
     <h2 class="sh">Consumer attention moved.<br>Most brand budgets haven't.</h2>
-    <p style="font-size:14px;color:var(--muted);line-height:1.8;font-weight:300;max-width:600px;margin-top:12px;">The brands sitting out aren't just missing revenue today — they're letting competitors lock in creator relationships, platform trust, and audience habits that <em style="color:var(--text);font-style:normal;font-weight:500;">will be very hard to displace once the market matures.</em></p>
   </div>
   <div class="vis-grid">
     <div class="vis-card s3d d1">
-      <span class="vis-big" id="vc-hours">3.7</span>
-      <div class="vis-title">Hours spent on social — daily</div>
-      <div class="vis-sub">That's where discovery happens now. Not TV. Not search. <em style="color:var(--text);font-style:normal;">Social.</em></div>
+      <span class="vis-big">3.7<span style="font-size:0.45em;color:var(--muted);font-weight:300;letter-spacing:0;"> hrs</span></span>
+      <div class="vis-title">Daily time spent on social</div>
       <div class="vis-track"><div class="vis-fill" style="--w:92%;background:var(--li);"></div></div>
     </div>
     <div class="vis-card s3d d2">
-      <span class="vis-big" style="color:#4A7FA5;">→</span>
-      <div class="vis-title">The window is still open</div>
-      <div class="vis-sub">Most categories aren't locked up yet. Build the creator relationships now — <em style="color:var(--text);font-style:normal;">they compound over time.</em></div>
-      <div class="vis-track"><div class="vis-fill" style="--w:52%;background:#4A7FA5;"></div></div>
+      <span class="vis-big" style="color:#4A7FA5;">$0<span style="font-size:0.4em;color:var(--muted);font-weight:300;letter-spacing:0;"> upfront</span></span>
+      <div class="vis-title">Affiliate cost until you get paid</div>
+      <div class="vis-track"><div class="vis-fill" style="--w:100%;background:var(--li);"></div></div>
     </div>
     <div class="vis-card s3d d3">
-      <span class="vis-big">$0</span>
-      <div class="vis-title">Upfront cost for affiliates</div>
-      <div class="vis-sub">Affiliates only get paid when you do. A single creator video can drive thousands of purchases <em style="color:var(--text);font-style:normal;">with no media spend.</em></div>
-      <div class="vis-track"><div class="vis-fill" style="--w:100%;background:var(--li);"></div></div>
+      <span class="vis-big">1<span style="font-size:0.4em;color:var(--muted);font-weight:300;letter-spacing:0;"> video</span></span>
+      <div class="vis-title">Can sell out a product overnight</div>
+      <div class="vis-track"><div class="vis-fill" style="--w:78%;background:var(--li2);"></div></div>
     </div>
   </div>
 </section>
@@ -339,7 +360,6 @@ footer{padding:26px 64px;border-top:1px solid var(--bdr);display:flex;align-item
         <svg width="48" height="48" viewBox="0 0 30 30" fill="none"><rect width="30" height="30" rx="6" fill="#010101"/><path d="M16 5.5h2.8a5.2 5.2 0 003.7 3.7v2.8a8 8 0 01-3.7-1V17a4.8 4.8 0 11-4.8-4.8 4.8 4.8 0 01.9.08v2.9a2.3 2.3 0 100 4.1 2.3 2.3 0 001.9-2.3V5.5z" fill="white"/></svg>
       </div>
       <div class="pv-name">TikTok</div>
-      <div class="pv-body">The most powerful product discovery engine ever built.</div>
       <div class="pv-tag">Shop · Affiliates · Live</div>
     </div>
     <div class="pv s3d d2">
@@ -348,7 +368,6 @@ footer{padding:26px 64px;border-top:1px solid var(--bdr);display:flex;align-item
         <svg width="48" height="48" viewBox="0 0 30 30" fill="none"><rect width="30" height="30" rx="6" fill="url(#ig4)"/><defs><linearGradient id="ig4" x1="0" y1="30" x2="30" y2="0"><stop offset="0%" stop-color="#F58529"/><stop offset="50%" stop-color="#DD2A7B"/><stop offset="100%" stop-color="#8134AF"/></linearGradient></defs><rect x="7" y="7" width="16" height="16" rx="4" stroke="white" stroke-width="1.5" fill="none"/><circle cx="15" cy="15" r="4" stroke="white" stroke-width="1.5" fill="none"/><circle cx="20" cy="10" r="1" fill="white"/></svg>
       </div>
       <div class="pv-name">Instagram</div>
-      <div class="pv-body">Aspirational brands meet high-intent lifestyle audiences.</div>
       <div class="pv-tag">Creators · Reels · Collabs</div>
     </div>
     <div class="pv s3d d3">
@@ -357,7 +376,6 @@ footer{padding:26px 64px;border-top:1px solid var(--bdr);display:flex;align-item
         <svg width="48" height="48" viewBox="0 0 30 30" fill="none"><rect width="30" height="30" rx="6" fill="#FF0000"/><path d="M22.5 10.5a2 2 0 00-1.5-1.5C19.7 8.7 15 8.7 15 8.7s-4.7 0-6 .3a2 2 0 00-1.5 1.5C7.2 12 7.2 15 7.2 15s0 3 .3 4.5a2 2 0 001.5 1.5c1.3.3 6 .3 6 .3s4.7 0 6-.3a2 2 0 001.5-1.5c.3-1.5.3-4.5.3-4.5s0-3-.3-4.5z" fill="white"/><polygon points="12.8,18 18.3,15 12.8,12" fill="#FF0000"/></svg>
       </div>
       <div class="pv-name">YouTube</div>
-      <div class="pv-body">Reviews and tutorials with the deepest purchase intent.</div>
       <div class="pv-tag">Influencers · Shorts · Reviews</div>
     </div>
     <div class="pv s3d d4">
@@ -366,7 +384,6 @@ footer{padding:26px 64px;border-top:1px solid var(--bdr);display:flex;align-item
         <svg width="48" height="48" viewBox="0 0 30 30" fill="none"><rect width="30" height="30" rx="6" fill="#1877F2"/><path d="M17 16h1.8l.4-2.8H17v-1c0-.8.4-1.3 1.4-1.3H19.2V8.6a18 18 0 00-2.3-.2c-2.4 0-3.9 1.5-3.9 4.1v1.5H11V16h2v6.5h3V16z" fill="white"/></svg>
       </div>
       <div class="pv-name">Facebook</div>
-      <div class="pv-body">Niche communities making purchasing decisions together.</div>
       <div class="pv-tag">Communities · Groups · Reach</div>
     </div>
   </div>
@@ -391,34 +408,40 @@ footer{padding:26px 64px;border-top:1px solid var(--bdr);display:flex;align-item
 </section>
 
 <section class="sec sec-alt bdt" id="s-mason">
-  <div class="s3d-l" style="margin-bottom:40px;">
-    <div class="lbl">Who I Am</div>
-    <h2 class="sh">I've been building inside this space for years.</h2>
-  </div>
-  <div class="mason-vis s3d d1">
-    <div class="mv-left">
-      <p style="font-size:15px;color:var(--muted);line-height:1.85;font-weight:300;margin-bottom:28px;">I'm Mason Bertrand — an operator, not a consultant. I've built social commerce programs from scratch across creators, affiliates, and influencers on every major platform, and I understand <em style="color:var(--text);font-style:normal;font-weight:500;">why most brands get this wrong</em> and what it looks like when it's done right.</p>
-      <a href="https://www.linkedin.com/in/masonbertrand/" target="_blank" rel="noopener" class="btn-li" style="display:inline-flex;align-items:center;gap:8px;"><div class="n-in" style="width:20px;height:20px;font-size:10px;">in</div>Follow on LinkedIn</a>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;">
+    <div class="s3d-l">
+      <div class="lbl">Who I Am</div>
+      <h2 class="sh">I've been building inside this space for years.</h2>
+      <p style="font-size:15px;color:var(--muted);line-height:1.85;font-weight:300;margin-top:16px;">I'm Mason Bertrand — an operator, not a consultant. I've built social commerce programs from scratch across creators, affiliates, and influencers on every major platform, and I understand <em style="color:var(--text);font-style:normal;font-weight:500;">why most brands get this wrong</em> and what it looks like when it's done right.</p>
     </div>
-    <div class="mv-right">
-      <div class="mv-stat">
-        <div class="mv-n">7+</div>
-        <div class="mv-l">Years in social commerce</div>
-      </div>
-      <div class="mv-divider"></div>
-      <div class="mv-stat">
-        <div class="mv-n">500+</div>
-        <div class="mv-l">Creators activated</div>
-      </div>
-      <div class="mv-divider"></div>
-      <div class="mv-stat">
-        <div class="mv-n">5</div>
-        <div class="mv-l">Platforms owned simultaneously</div>
-      </div>
-      <div class="mv-divider"></div>
-      <div class="mv-stat">
-        <div class="mv-n">$50M+</div>
-        <div class="mv-l">GMV influenced</div>
+    <div class="s3d d1">
+      <div class="lbl" style="margin-bottom:28px;">Brands I've worked with</div>
+      <div class="brand-logos">
+        <div class="brand-logo">
+          <svg viewBox="0 0 140 40" fill="none" xmlns="http://www.w3.org/2000/svg" height="36">
+            <rect x="0" y="8" width="24" height="24" rx="4" fill="rgba(112,181,249,0.15)" stroke="rgba(112,181,249,0.4)" stroke-width="1"/>
+            <text x="12" y="24" font-family="-apple-system,sans-serif" font-size="11" font-weight="800" fill="#70B5F9" text-anchor="middle">R</text>
+            <text x="34" y="26" font-family="-apple-system,sans-serif" font-size="16" font-weight="800" fill="#E8EAED" letter-spacing="-0.5">Ridge</text>
+          </svg>
+        </div>
+        <div class="brand-logo-divider"></div>
+        <div class="brand-logo">
+          <svg viewBox="0 0 200 40" fill="none" xmlns="http://www.w3.org/2000/svg" height="36">
+            <circle cx="20" cy="20" r="14" fill="rgba(112,181,249,0.1)" stroke="rgba(112,181,249,0.35)" stroke-width="1"/>
+            <text x="20" y="24" font-family="-apple-system,sans-serif" font-size="9" font-weight="800" fill="#70B5F9" text-anchor="middle">SNAP</text>
+            <text x="44" y="26" font-family="-apple-system,sans-serif" font-size="14" font-weight="700" fill="#E8EAED" letter-spacing="-0.3">Snap</text>
+            <text x="44" y="26" font-family="-apple-system,sans-serif" font-size="14" font-weight="300" fill="var(--muted)" letter-spacing="-0.3" dx="42">Supplements</text>
+          </svg>
+        </div>
+        <div class="brand-logo-divider"></div>
+        <div class="brand-logo">
+          <svg viewBox="0 0 160 40" fill="none" xmlns="http://www.w3.org/2000/svg" height="36">
+            <ellipse cx="18" cy="20" rx="14" ry="14" fill="rgba(112,181,249,0.08)" stroke="rgba(112,181,249,0.3)" stroke-width="1"/>
+            <text x="18" y="24" font-family="-apple-system,sans-serif" font-size="9" font-weight="800" fill="#70B5F9" text-anchor="middle">Z</text>
+            <text x="40" y="26" font-family="-apple-system,sans-serif" font-size="14" font-weight="700" fill="#E8EAED" letter-spacing="-0.3">Zena</text>
+            <text x="40" y="26" font-family="-apple-system,sans-serif" font-size="14" font-weight="300" fill="var(--muted)" letter-spacing="-0.3" dx="42">Nutrition</text>
+          </svg>
+        </div>
       </div>
     </div>
   </div>
