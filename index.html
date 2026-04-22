@@ -90,7 +90,12 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:22px 6
 .h-scroll{position:absolute;bottom:36px;left:64px;z-index:10;display:flex;align-items:center;gap:10px;opacity:0;animation:heroUp 0.6s 1s both;}
 .h-scroll-line{width:1px;height:36px;background:linear-gradient(to bottom,var(--li),transparent);}
 .h-scroll-txt{font-size:9px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--dim);}
-#bg3d{position:absolute;inset:0;z-index:0;will-change:transform;contain:paint;}
+.hero-dots{position:absolute;inset:0;z-index:0;
+  background-image:radial-gradient(circle,rgba(10,102,194,0.22) 1px,transparent 1px);
+  background-size:48px 48px;
+  animation:dotsDrift 40s linear infinite;
+  opacity:0.55;}
+@keyframes dotsDrift{0%{background-position:0 0;}100%{background-position:48px 48px;}}
 .hero-body{position:relative;z-index:10;max-width:780px;}
 .h-eye{font-size:11px;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--li2);margin-bottom:28px;display:flex;align-items:center;gap:10px;opacity:0;animation:heroUp 0.5s 0.1s both;}
 .h-eye::before{content:'';width:22px;height:1px;background:var(--li2);}
@@ -295,7 +300,7 @@ footer{padding:22px 64px;border-top:1px solid var(--bdr);display:flex;align-item
 </nav>
 
 <section class="hero">
-  <canvas id="bg3d"></canvas>
+  <div class="hero-dots"></div>
   <div class="hero-glow"></div>
   <div class="hero-body">
     <div class="h-eye">Mason Bertrand · Social Commerce</div>
@@ -303,7 +308,7 @@ footer{padding:22px 64px;border-top:1px solid var(--bdr);display:flex;align-item
     <div class="h-rule"></div>
     <p class="h-sub">Social commerce is generating billions in revenue for brands that figured it out early. <em>Most brands still haven't made a move.</em></p>
   </div>
-  <div class="h-scroll"><div class="h-scroll-line"></div><span class="h-scroll-txt">Scroll</span></div>
+  <div class="h-scroll"><div class="h-scroll-line"></div></div>
 </section>
 
 <section class="sec sec-alt bdt" id="s-mason">
@@ -311,7 +316,7 @@ footer{padding:22px 64px;border-top:1px solid var(--bdr);display:flex;align-item
     <div class="s3d-l">
       <div class="lbl">Who I Am</div>
       <h2 class="sh">I build the programs most brands outsource and hope for the best.</h2>
-      <p style="font-size:14px;color:var(--muted);line-height:1.8;font-weight:300;margin-top:16px;">I'm Mason Bertrand — an operator, not a consultant. I've run TikTok Shop, affiliate programs, and creator partnerships at some of the most recognized brands in the everyday carry space. I know <em style="color:var(--text);font-style:normal;font-weight:500;">why most brands get this wrong</em> — and exactly what it looks like when it's built right.</p>
+      <p style="font-size:14px;color:var(--muted);line-height:1.8;font-weight:300;margin-top:16px;">I'm Mason Bertrand — an operator, not a consultant. I've built social commerce frameworks at some of the most recognized brands in the everyday carry space. I know <em style="color:var(--text);font-style:normal;font-weight:500;">why most brands get this wrong</em> — and exactly what it looks like when it's built right.</p>
     </div>
     <div class="s3d d1">
       <div class="lbl" style="margin-bottom:24px;">Brands I've scaled</div>
@@ -461,43 +466,7 @@ footer{padding:22px 64px;border-top:1px solid var(--bdr);display:flex;align-item
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
-/* ── HERO PARTICLE NETWORK ── */
-(function(){
-  const c=document.getElementById('bg3d');
-  if(!c||typeof THREE==='undefined')return;
-  const scene=new THREE.Scene(),cam=new THREE.PerspectiveCamera(60,2,0.1,200);
-  const renderer=new THREE.WebGLRenderer({canvas:c,alpha:true,antialias:true});
-  function rsz(){const w=c.parentElement.offsetWidth||900,h=c.parentElement.offsetHeight||720;renderer.setSize(w,h);cam.aspect=w/h;cam.updateProjectionMatrix();}
-  setTimeout(rsz,60);window.addEventListener('resize',rsz);
-  cam.position.z=40;
-  const COUNT=150,pts=[],vel=[];
-  for(let i=0;i<COUNT;i++){pts.push(new THREE.Vector3((Math.random()-.5)*90,(Math.random()-.5)*60,(Math.random()-.5)*20-5));vel.push(new THREE.Vector3((Math.random()-.5)*.025,(Math.random()-.5)*.025,0));}
-  const dotGeo=new THREE.BufferGeometry(),dotPos=new Float32Array(COUNT*3);
-  pts.forEach((p,i)=>{dotPos[i*3]=p.x;dotPos[i*3+1]=p.y;dotPos[i*3+2]=p.z;});
-  dotGeo.setAttribute('position',new THREE.BufferAttribute(dotPos,3));
-  scene.add(new THREE.Points(dotGeo,new THREE.PointsMaterial({color:0x1a7fd4,size:0.65,transparent:true,opacity:0.75})));
-  const MAXL=280,lpos=new Float32Array(MAXL*6),lgeo=new THREE.BufferGeometry();
-  lgeo.setAttribute('position',new THREE.BufferAttribute(lpos,3));lgeo.setDrawRange(0,0);
-  scene.add(new THREE.LineSegments(lgeo,new THREE.LineBasicMaterial({color:0x1a7fd4,transparent:true,opacity:0.25})));
-  let mx=0,my=0,sf=0,_heroPaused=false;
-  document.addEventListener('visibilitychange',()=>{_heroPaused=document.hidden;});
-  document.addEventListener('mousemove',e=>{mx=(e.clientX/window.innerWidth-.5)*2;my=-(e.clientY/window.innerHeight-.5)*2;});
-  window.addEventListener('scroll',()=>{sf=Math.min(1,window.scrollY/(c.parentElement.offsetHeight||720));},{passive:true});
-  (function loop(){
-    requestAnimationFrame(loop);
-    if(_heroPaused)return;
-    cam.position.x+=(mx*4-cam.position.x)*.03;
-    cam.position.y+=(my*2.5-cam.position.y)*.03;
-    cam.position.z=40+sf*24;
-    cam.lookAt(scene.position);
-    pts.forEach((p,i)=>{p.x+=vel[i].x;p.y+=vel[i].y;if(Math.abs(p.x)>54)vel[i].x*=-1;if(Math.abs(p.y)>38)vel[i].y*=-1;dotPos[i*3]=p.x;dotPos[i*3+1]=p.y;dotPos[i*3+2]=p.z;});
-    dotGeo.attributes.position.needsUpdate=true;
-    let lc=0;
-    for(let i=0;i<COUNT&&lc<MAXL;i++){for(let j=i+1;j<COUNT&&lc<MAXL;j++){const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y;if(Math.sqrt(dx*dx+dy*dy)<20){lpos[lc*6]=pts[i].x;lpos[lc*6+1]=pts[i].y;lpos[lc*6+2]=pts[i].z;lpos[lc*6+3]=pts[j].x;lpos[lc*6+4]=pts[j].y;lpos[lc*6+5]=pts[j].z;lc++;}}}
-    lgeo.setDrawRange(0,lc*2);lgeo.attributes.position.needsUpdate=true;
-    renderer.render(scene,cam);
-  })();
-})();
+/* ── HERO: CSS dot-grid (see .hero-dots) ── */
 
 /* ── HALO SPHERE ── */
 (function(){
