@@ -178,8 +178,7 @@ footer{padding:26px 64px;border-top:1px solid var(--bdr);display:flex;align-item
   .h-sub{font-size:15px;}.h-rule{margin:24px 0;}
   .sec{padding:64px 28px;}
   .what-g,.mason-g{grid-template-columns:1fr;gap:40px;}
-  #s-gap>div,#s-mason>div{grid-template-columns:1fr !important;gap:36px !important;}
-  #s-mason>div>div:last-child{padding-top:0 !important;}
+  #s-mason>div{grid-template-columns:1fr !important;gap:36px !important;}
   .why-g{grid-template-columns:1fr;margin-top:36px;}
   .plat-row{flex-wrap:wrap;}
   .pi{flex:0 0 50%;border-bottom:1px solid var(--bdr);}
@@ -221,22 +220,13 @@ footer{padding:26px 64px;border-top:1px solid var(--bdr);display:flex;align-item
   <a href="https://www.linkedin.com/in/masonbertrand/" class="n-cta" target="_blank" rel="noopener">Connect on LinkedIn</a>
 </nav>
 
-<section class="hero">
-  <canvas id="bg3d"></canvas>
-  <div class="hero-body">
-    <div class="h-eye">Mason Bertrand · Social Commerce</div>
-    <h1 class="hh">Your customers<br>already <span class="ac">discovered</span><br>your <span class="gh">competitor.</span></h1>
-    <div class="h-rule"></div>
-    <p class="h-sub">Social commerce is generating billions in revenue for brands that figured it out early. <em>Most brands still haven't made a move.</em></p>
-  </div>
-</section>
-
 <section class="sec bdt" id="s-what">
   <div class="what-g">
     <div class="w-l s3d-l">
       <div class="lbl">What Is Social Commerce</div>
       <h2>Not advertising.<br>Trust at scale.</h2>
-      <p>When a creator, affiliate, or influencer recommends your product to their audience — and that audience buys it <em>without ever leaving the platform</em> — that's social commerce. The conversion rates, acquisition costs, and compounding potential look like nothing else in digital marketing.</p>
+      <p>When a creator, affiliate, or influencer recommends your product to their audience — and that audience buys it <em>without ever leaving the platform</em> — that's social commerce. Most brands have heard of it. Very few have actually built the infrastructure to capture it.</p>
+      <p style="margin-top:16px;font-size:14px;color:var(--muted);line-height:1.8;font-weight:300;">Most brands have heard about it. <em>Very few have actually built the infrastructure to capture it.</em></p>
     </div>
     <div class="w-r">
       <div class="dc s3d d1">
@@ -265,6 +255,7 @@ footer{padding:26px 64px;border-top:1px solid var(--bdr);display:flex;align-item
   <div class="s3d">
     <div class="lbl">Why It Matters Now</div>
     <h2 class="sh">Consumer attention moved.<br>Most brand budgets haven't.</h2>
+    <p style="font-size:14px;color:var(--muted);line-height:1.8;font-weight:300;max-width:600px;margin-top:12px;">The brands sitting out aren't just missing revenue today — they're letting competitors lock in creator relationships, platform trust, and audience habits that <em style="color:var(--text);font-style:normal;font-weight:500;">will be very hard to displace once the market matures.</em></p>
   </div>
   <div class="why-g">
     <div class="wc s3d d1">
@@ -277,28 +268,14 @@ footer{padding:26px 64px;border-top:1px solid var(--bdr);display:flex;align-item
     </div>
     <div class="wc s3d d3">
       <div class="wc-h">The economics are unlike anything else</div>
-      <div class="wc-b">Affiliates only get paid when you do. A single creator video can drive thousands of purchases with <em>no media spend behind it.</em></div>
+      <div class="wc-b">Affiliates only get paid when you do. A single creator video can drive thousands of purchases with <em>no media spend behind it.</em> The brands building now will be very hard to displace later.</div>
     </div>
   </div>
 </section>
 
-<section class="sec bdt" id="s-halo">
-  <div class="s3d" style="text-align:center;margin-bottom:0;">
-    <div class="lbl" style="justify-content:center;">The Halo Effect</div>
-    <h2 class="sh" style="text-align:center;max-width:none;">The revenue doesn't stay on social.</h2>
-  </div>
-  <div class="sphere-wrap" id="sphere-wrap">
-    <canvas id="halo-canvas"></canvas>
-    <div class="sl" id="sl-0"><div class="sl-text">Amazon &amp; Retail</div></div>
-    <div class="sl" id="sl-1"><div class="sl-text">Branded Search</div></div>
-    <div class="sl" id="sl-2"><div class="sl-text">Paid Ads</div></div>
-    <div class="sl" id="sl-3"><div class="sl-text">Direct Revenue</div></div>
-    <div class="sl-center" id="sl-center">Social<br>Commerce</div>
-  </div>
-  <p class="sphere-hint s3d">Drag to rotate</p>
-</section>
 
-<section class="sec sec-alt bdt" id="s-plat">
+
+<section class="sec bdt" id="s-plat">
   <div class="s3d">
     <div class="lbl">Where It Lives</div>
     <h2 class="sh">Every platform your<br>audience already is.</h2>
@@ -327,16 +304,22 @@ footer{padding:26px 64px;border-top:1px solid var(--bdr);display:flex;align-item
   </div>
 </section>
 
-<section class="sec bdt" id="s-gap">
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start;">
-    <div class="s3d-l">
-      <div class="lbl">The Gap</div>
-      <h2 class="sh">Most brands have heard about social commerce.<br>Very few have acted on it.</h2>
-    </div>
-    <div class="s3d d1" style="padding-top:8px;">
-      <p style="font-size:15px;color:var(--muted);line-height:1.85;font-weight:300;">The brands sitting out aren't just missing revenue today — they're letting competitors lock in creator relationships, platform trust, and audience habits that compound over time. The halo lifts Amazon, search, and paid channels too. <em style="color:var(--text);font-style:normal;font-weight:500;">The window is open. It won't be forever.</em></p>
-    </div>
+
+
+<section class="sec sec-alt bdt" id="s-halo">
+  <div class="s3d" style="text-align:center;margin-bottom:0;">
+    <div class="lbl" style="justify-content:center;">The Halo Effect</div>
+    <h2 class="sh" style="text-align:center;max-width:none;">The revenue doesn't stay on social.</h2>
   </div>
+  <div class="sphere-wrap" id="sphere-wrap">
+    <canvas id="halo-canvas"></canvas>
+    <div class="sl" id="sl-0"><div class="sl-text">Amazon &amp; Retail</div></div>
+    <div class="sl" id="sl-1"><div class="sl-text">Branded Search</div></div>
+    <div class="sl" id="sl-2"><div class="sl-text">Paid Ads</div></div>
+    <div class="sl" id="sl-3"><div class="sl-text">Direct Revenue</div></div>
+    <div class="sl-center" id="sl-center">Social<br>Commerce</div>
+  </div>
+  <p class="sphere-hint s3d">Drag to rotate</p>
 </section>
 
 <section class="sec sec-alt bdt" id="s-mason">
@@ -348,6 +331,16 @@ footer{padding:26px 64px;border-top:1px solid var(--bdr);display:flex;align-item
     <div class="s3d d1">
       <p style="font-size:15px;color:var(--muted);line-height:1.85;font-weight:300;">I'm Mason Bertrand — an operator, not a consultant. I've built social commerce programs from scratch across creators, affiliates, and influencers on every major platform, and I understand <em style="color:var(--text);font-style:normal;font-weight:500;">why most brands get this wrong</em> and what it looks like when it's done right.</p>
     </div>
+  </div>
+</section>
+
+<section class="hero">
+  <canvas id="bg3d"></canvas>
+  <div class="hero-body">
+    <div class="h-eye">Mason Bertrand · Social Commerce</div>
+    <h1 class="hh">Your customers<br>already <span class="ac">discovered</span><br>your <span class="gh">competitor.</span></h1>
+    <div class="h-rule"></div>
+    <p class="h-sub">Social commerce is generating billions in revenue for brands that figured it out early. <em>Most brands still haven't made a move.</em></p>
   </div>
 </section>
 
