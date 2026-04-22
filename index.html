@@ -210,6 +210,7 @@ footer{padding:22px 64px;border-top:1px solid var(--bdr);display:flex;align-item
   .s3d-l{transform:translateY(24px);}.s3d-l.in{transform:translateY(0);}
   .pi{flex:0 0 100%;border-right:none;border-bottom:1px solid var(--bdr);}.pi:last-child{border-bottom:none;}
   .sphere-wrap{height:380px;}.sl-text{font-size:9px;padding:4px 9px;letter-spacing:0.07em;}.sl-center{font-size:9px;}.sphere-hint{font-size:9px;}
+  #s-halo>div{grid-template-columns:1fr !important;}
   .wc{padding:28px 22px;}.wc-h{font-size:15px;}
   .dc{padding:18px 20px;}.dc:hover{padding-left:24px;}
   .conn{padding:64px 20px;}.c-sub2{display:none;}
@@ -465,19 +466,23 @@ footer{padding:22px 64px;border-top:1px solid var(--bdr);display:flex;align-item
 
 
 <section class="sec sec-alt bdt" id="s-halo">
-  <div class="s3d">
-    <div class="lbl">The Halo Effect</div>
-    <h2 class="sh">One creator sparks a moment.<br>The flywheel turns it into a movement.</h2>
+  <div style="display:grid;grid-template-columns:1fr 1.6fr;gap:64px;align-items:center;">
+    <div class="s3d">
+      <div class="lbl">The Halo Effect</div>
+      <h2 class="sh">One creator sparks a moment.<br>The flywheel turns it into a movement.</h2>
+    </div>
+    <div>
+      <div class="sphere-wrap" id="sphere-wrap">
+        <canvas id="halo-canvas"></canvas>
+        <div class="sl" id="sl-0"><div class="sl-text">Purchase Intent<div class="sl-sub">Audience already wants it</div></div></div>
+        <div class="sl" id="sl-1"><div class="sl-text">Direct Checkout<div class="sl-sub">Buy without leaving the platform</div></div></div>
+        <div class="sl" id="sl-2"><div class="sl-text">Repeat Purchase<div class="sl-sub">Trust compounds over time</div></div></div>
+        <div class="sl" id="sl-3"><div class="sl-text">Organic Reach<div class="sl-sub">Buyers become your next creators</div></div></div>
+        <div class="sl-center" id="sl-center">The<br>Flywheel</div>
+      </div>
+      <p class="sphere-hint s3d">Drag to rotate</p>
+    </div>
   </div>
-  <div class="sphere-wrap" id="sphere-wrap">
-    <canvas id="halo-canvas"></canvas>
-    <div class="sl" id="sl-0"><div class="sl-text">Purchase Intent<div class="sl-sub">Audience already wants it</div></div></div>
-    <div class="sl" id="sl-1"><div class="sl-text">Direct Checkout<div class="sl-sub">Buy without leaving the platform</div></div></div>
-    <div class="sl" id="sl-2"><div class="sl-text">Repeat Purchase<div class="sl-sub">Trust compounds over time</div></div></div>
-    <div class="sl" id="sl-3"><div class="sl-text">Organic Reach<div class="sl-sub">Buyers become your next creators</div></div></div>
-    <div class="sl-center" id="sl-center">The<br>Flywheel</div>
-  </div>
-  <p class="sphere-hint s3d">Drag to rotate</p>
 </section>
 
 <section class="conn">
