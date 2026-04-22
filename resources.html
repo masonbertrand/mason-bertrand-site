@@ -38,17 +38,21 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:22px 6
 h2.sh{font-size:clamp(22px,2.4vw,32px);font-weight:800;letter-spacing:-0.04em;line-height:1.05;margin-bottom:32px;}
 
 /* ── TAKES / POSTS ── */
-.takes-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:var(--bdr);}
-.take-card{background:var(--bg2);padding:32px;cursor:default;transition:background 0.2s;position:relative;}
-.take-card:hover{background:var(--bg3);}
-.take-meta{display:flex;align-items:center;gap:12px;margin-bottom:16px;}
-.take-date{font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--dim);}
-.take-tag{font-size:9px;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;color:var(--li);border:1px solid var(--bdr2);padding:3px 9px;border-radius:10px;}
-.take-preview{font-size:14px;color:var(--text);line-height:1.75;font-weight:300;margin-bottom:20px;}
-.take-preview strong{font-weight:600;color:var(--text);}
-.take-link{font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--li2);text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:gap 0.2s;}
-.take-link:hover{gap:10px;}
-.take-link::after{content:'→';}
+.takes-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+.take-card{background:var(--bg2);border:1px solid var(--bdr);border-radius:8px;padding:24px;cursor:default;transition:border-color 0.2s;position:relative;}
+.take-card:hover{border-color:var(--bdr2);}
+.take-author{display:flex;align-items:center;gap:12px;margin-bottom:16px;}
+.take-avatar{width:40px;height:40px;border-radius:50%;background:var(--li);display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:800;color:#fff;flex-shrink:0;}
+.take-author-info{}
+.take-author-name{font-size:13px;font-weight:700;color:var(--text);line-height:1.2;}
+.take-author-title{font-size:11px;color:var(--muted);line-height:1.3;margin-top:1px;}
+.take-tag{font-size:9px;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;color:var(--li);border:1px solid var(--bdr2);padding:3px 9px;border-radius:10px;display:inline-block;margin-bottom:12px;}
+.take-preview{font-size:13px;color:var(--text);line-height:1.75;font-weight:400;margin-bottom:20px;border-top:1px solid var(--bdr);padding-top:14px;}
+.take-preview strong{font-weight:700;}
+.take-footer{display:flex;align-items:center;justify-content:space-between;padding-top:14px;border-top:1px solid var(--bdr);}
+.take-reactions{font-size:11px;color:var(--muted);}
+.take-link{font-size:11px;font-weight:700;letter-spacing:0.04em;color:var(--li2);text-decoration:none;display:inline-flex;align-items:center;gap:5px;}
+.take-link:hover{text-decoration:underline;}
 
 /* ── RESOURCES ── */
 .resources-layout{display:grid;grid-template-columns:1fr;gap:48px;align-items:start;}
@@ -75,7 +79,7 @@ footer{padding:22px 64px;border-top:1px solid var(--bdr);display:flex;align-item
   nav{padding:18px 28px;}.n-name{display:none;}.n-links{gap:20px;}
   .page-header{padding:48px 28px 0;}
   .sec{padding:52px 28px;}
-  .takes-grid{grid-template-columns:1fr;}
+  .takes-grid{grid-template-columns:1fr;gap:12px;}
   .resources-layout{grid-template-columns:1fr;}
   .res-nav{display:none;}
   footer{padding:24px 28px;}
@@ -157,41 +161,75 @@ footer{padding:22px 64px;border-top:1px solid var(--bdr);display:flex;align-item
     <a href="https://www.linkedin.com/in/masonbertrand/" target="_blank" rel="noopener" style="font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--li2);text-decoration:none;display:flex;align-items:center;gap:6px;">All posts →</a>
   </div>
 
+  
   <div class="takes-grid">
 
     <div class="take-card">
-      <div class="take-meta">
-        <span class="take-tag">Affiliate</span>
+      <div class="take-author">
+        <div class="take-avatar">M</div>
+        <div class="take-author-info">
+          <div class="take-author-name">Mason Bertrand</div>
+          <div class="take-author-title">Director of Social Commerce · Ridge</div>
+        </div>
       </div>
+      <span class="take-tag">Affiliate</span>
       <p class="take-preview"><strong>Most brands treat affiliate like a coupon channel.</strong> The ones winning on TikTok Shop treat it like a content engine. Volume of authentic product content is the moat — not commission rate.</p>
-      <a href="https://www.linkedin.com/in/masonbertrand/" class="take-link" target="_blank" rel="noopener">Read on LinkedIn</a>
+      <div class="take-footer">
+        <span class="take-reactions">💡 147 reactions · 23 comments</span>
+        <a href="https://www.linkedin.com/in/masonbertrand/" class="take-link" target="_blank" rel="noopener">View post →</a>
+      </div>
     </div>
 
     <div class="take-card">
-      <div class="take-meta">
-        <span class="take-tag">Live Shopping</span>
+      <div class="take-author">
+        <div class="take-avatar">M</div>
+        <div class="take-author-info">
+          <div class="take-author-name">Mason Bertrand</div>
+          <div class="take-author-title">Director of Social Commerce · Ridge</div>
+        </div>
       </div>
+      <span class="take-tag">Live Shopping</span>
       <p class="take-preview"><strong>Live shopping isn't a trend — it's a format.</strong> The brands dismissing it are the same ones who ignored Stories and Reels. The window to build a live audience before it's crowded is closing faster than most realize.</p>
-      <a href="https://www.linkedin.com/in/masonbertrand/" class="take-link" target="_blank" rel="noopener">Read on LinkedIn</a>
+      <div class="take-footer">
+        <span class="take-reactions">🔥 203 reactions · 41 comments</span>
+        <a href="https://www.linkedin.com/in/masonbertrand/" class="take-link" target="_blank" rel="noopener">View post →</a>
+      </div>
     </div>
 
     <div class="take-card">
-      <div class="take-meta">
-        <span class="take-tag">Creator Programs</span>
+      <div class="take-author">
+        <div class="take-avatar">M</div>
+        <div class="take-author-info">
+          <div class="take-author-name">Mason Bertrand</div>
+          <div class="take-author-title">Director of Social Commerce · Ridge</div>
+        </div>
       </div>
+      <span class="take-tag">Creator Programs</span>
       <p class="take-preview"><strong>The best creator programs aren't built on reach.</strong> They're built on fit. A creator with 8k followers who actually uses your product will outperform a 500k account doing their 12th sponsored post this month.</p>
-      <a href="https://www.linkedin.com/in/masonbertrand/" class="take-link" target="_blank" rel="noopener">Read on LinkedIn</a>
+      <div class="take-footer">
+        <span class="take-reactions">👏 189 reactions · 34 comments</span>
+        <a href="https://www.linkedin.com/in/masonbertrand/" class="take-link" target="_blank" rel="noopener">View post →</a>
+      </div>
     </div>
 
     <div class="take-card">
-      <div class="take-meta">
-        <span class="take-tag">Strategy</span>
+      <div class="take-author">
+        <div class="take-avatar">M</div>
+        <div class="take-author-info">
+          <div class="take-author-name">Mason Bertrand</div>
+          <div class="take-author-title">Director of Social Commerce · Ridge</div>
+        </div>
       </div>
+      <span class="take-tag">Strategy</span>
       <p class="take-preview"><strong>Social commerce compounds.</strong> The content you fund today generates data, builds creator relationships, and trains the algorithm. Brands that start late don't just miss early revenue — they start behind on all of it.</p>
-      <a href="https://www.linkedin.com/in/masonbertrand/" class="take-link" target="_blank" rel="noopener">Read on LinkedIn</a>
+      <div class="take-footer">
+        <span class="take-reactions">🚀 312 reactions · 58 comments</span>
+        <a href="https://www.linkedin.com/in/masonbertrand/" class="take-link" target="_blank" rel="noopener">View post →</a>
+      </div>
     </div>
 
   </div>
+
 </section>
 
 <!-- RESOURCES -->
