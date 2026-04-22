@@ -106,8 +106,8 @@ h1.hh .ac{color:var(--li2);}h1.hh .gh{color:#3D5A7A;}
 .s3d.d1{transition-delay:0.08s;}.s3d.d2{transition-delay:0.18s;}.s3d.d3{transition-delay:0.28s;}.s3d.d4{transition-delay:0.38s;}
 .s3d-l{opacity:0;transform:perspective(1000px) rotateY(-28deg) translateX(-60px) translateZ(-40px);transition:opacity 0.7s ease,transform 0.7s ease;transform-origin:left center;}
 .s3d-l.in{opacity:1;transform:perspective(1000px) rotateY(0) translateX(0) translateZ(0);}
-.sec{padding:88px 64px;}.sec-alt{background:var(--bg2);}.bdt{border-top:1px solid var(--bdr);}
-.lbl{font-size:10px;font-weight:800;letter-spacing:0.22em;text-transform:uppercase;color:var(--li);margin-bottom:40px;display:flex;align-items:center;gap:10px;}
+.sec{padding:64px 64px;}.sec-alt{background:var(--bg2);}.bdt{border-top:1px solid var(--bdr);}
+.lbl{font-size:10px;font-weight:800;letter-spacing:0.22em;text-transform:uppercase;color:var(--li);margin-bottom:28px;display:flex;align-items:center;gap:10px;}
 .lbl::before{content:'';width:16px;height:1px;background:var(--li);}
 h2.sh{font-size:clamp(28px,3vw,42px);font-weight:800;letter-spacing:-0.04em;line-height:1.05;margin-bottom:16px;}
 .what-g{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;}
@@ -134,14 +134,14 @@ h2.sh{font-size:clamp(28px,3vw,42px);font-weight:800;letter-spacing:-0.04em;line
 .dc-bar--mid span{width:55%;background:#4A7FA5;}
 .dc-bar--good span{width:100%;background:var(--li);animation:fillBar 1.2s 0.8s ease both;}
 @keyframes fillBar{from{width:0%;}to{width:100%;}}
-.why-g{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--bdr);margin-top:48px;}
+.why-g{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--bdr);margin-top:32px;}
 .wc{background:var(--bg2);padding:36px 32px;cursor:default;position:relative;overflow:hidden;transform-style:preserve-3d;will-change:transform;}
 .wc::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--li);transform:scaleX(0);transform-origin:left;transition:transform 0.4s;}
 .wc:hover::after{transform:scaleX(1);}
 .wc-h{font-size:17px;font-weight:800;letter-spacing:-0.02em;line-height:1.2;margin-bottom:12px;}
 .wc-b{font-size:12px;color:var(--muted);line-height:1.75;}
 .wc-b em{color:var(--text);font-style:normal;}
-.sphere-wrap{position:relative;height:560px;margin-top:16px;cursor:grab;user-select:none;}
+.sphere-wrap{position:relative;height:500px;margin-top:24px;cursor:grab;user-select:none;}
 .sphere-wrap:active{cursor:grabbing;}
 #halo-canvas{position:absolute;inset:0;width:100%;height:100%;will-change:transform;contain:paint;}
 .sl{position:absolute;pointer-events:none;transform:translate(-50%,-50%);opacity:0;transition:opacity 0.5s;}
@@ -185,7 +185,7 @@ footer{padding:22px 64px;border-top:1px solid var(--bdr);display:flex;align-item
   nav{padding:18px 28px;}.n-name{display:none;}
   .hero{min-height:580px;padding:0 28px;}
   .h-sub{font-size:15px;}.h-rule{margin:24px 0;}
-  .sec{padding:64px 28px;}
+  .sec{padding:52px 28px;}
   .what-g,.mason-g{grid-template-columns:1fr;gap:40px;}
   #s-mason>div{grid-template-columns:1fr !important;gap:36px !important;}
   .why-g{grid-template-columns:1fr;margin-top:36px;}
@@ -217,7 +217,7 @@ footer{padding:22px 64px;border-top:1px solid var(--bdr);display:flex;align-item
 }
 
 /* ── VISUAL SECTIONS ── */
-.vis-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--bdr);margin-top:48px;}
+.vis-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--bdr);margin-top:32px;}
 .vis-card{background:var(--bg2);padding:44px 36px;position:relative;overflow:hidden;cursor:default;transition:background 0.25s;}
 .vis-card::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--li);transform:scaleX(0);transform-origin:left;transition:transform 0.4s;}
 .vis-card:hover::after{transform:scaleX(1);}
@@ -229,7 +229,7 @@ footer{padding:22px 64px;border-top:1px solid var(--bdr);display:flex;align-item
 .vis-fill{height:100%;border-radius:2px;width:0;transition:width 1.6s cubic-bezier(0.16,1,0.3,1);}
 .vis-fill.go{width:var(--w);}
 
-.plat-row-vis{display:flex;gap:0;border:1px solid var(--bdr);margin-top:48px;}
+.plat-row-vis{display:flex;gap:0;border:1px solid var(--bdr);margin-top:32px;}
 .pv{flex:1;padding:48px 24px 40px;border-right:1px solid var(--bdr);cursor:default;transition:all 0.3s;position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:flex-start;}
 .pv:last-child{border-right:none;}
 .pv::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--li);transform:scaleX(0);transform-origin:left;transition:transform 0.4s;}
@@ -307,9 +307,9 @@ footer{padding:22px 64px;border-top:1px solid var(--bdr);display:flex;align-item
   <div class="h-scroll"><div class="h-scroll-line"></div></div>
 </section>
 
-<section class="sec sec-alt bdt" id="s-mason" style="padding-top:72px;padding-bottom:72px;">
+<section class="sec sec-alt bdt" id="s-mason">
   <div class="s3d" style="text-align:center;">
-    <div class="lbl" style="margin-bottom:48px;">Brands I've scaled</div>
+    <div class="lbl" style="margin-bottom:32px;">Brands I've scaled</div>
     <div class="brand-v">
       <div class="brand-v-row">
         <img src="https://cdn.shopify.com/s/files/1/0613/6213/files/updated_ridge_tm_2.svg?v=1714762819" alt="Ridge" loading="lazy" style="height:52px;width:auto;filter:brightness(0) invert(1);opacity:0.8;">
@@ -381,7 +381,7 @@ footer{padding:22px 64px;border-top:1px solid var(--bdr);display:flex;align-item
 
 
 
-<section class="sec bdt" id="s-plat" style="padding-top:64px;padding-bottom:64px;">
+<section class="sec bdt" id="s-plat">
   <div class="s3d">
     <div class="lbl">Where It Lives</div>
     <h2 class="sh">Where your audience scrolls,<br>discovers — and buys.</h2>
@@ -421,7 +421,7 @@ footer{padding:22px 64px;border-top:1px solid var(--bdr);display:flex;align-item
 
 
 <section class="sec sec-alt bdt" id="s-halo">
-  <div class="s3d" style="text-align:center;margin-bottom:0;">
+  <div class="s3d">
     <div class="lbl">The Halo Effect</div>
     <h2 class="sh">One creator sparks a moment.<br>The flywheel turns it into a movement.</h2>
   </div>
