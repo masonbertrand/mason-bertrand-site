@@ -708,6 +708,60 @@ footer{padding:22px 64px;border-top:1px solid var(--bdr);display:flex;align-item
   });
 })();
 
+/* ── STAT COUNTERS ── */
+(function(){
+  function animateCounter(el,target,prefix,suffix,decimals){
+    const dur=1800,t0=performance.now();
+    (function tick(now){
+      const p=Math.min((now-t0)/dur,1),ease=1-Math.pow(1-p,3),val=ease*target;
+      el.textContent=prefix+(decimals?val.toFixed(1):Math.round(val))+suffix;
+      if(p<1)requestAnimationFrame(tick);
+    })(t0);
+  }
+  const cards=document.querySelectorAll('.vis-card');
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(!e.isIntersecting||e.target.dataset.counted)return;
+      e.target.dataset.counted='1';
+      const i=Array.from(cards).indexOf(e.target);
+      const big=e.target.querySelector('.vis-big');
+      if(!big)return;
+      setTimeout(()=>{
+        if(i===0){
+          const num=document.createElement('span');
+          const unit=document.createElement('span');
+          unit.style.cssText='font-size:0.38em;color:var(--muted);font-weight:300;letter-spacing:0;';
+          unit.textContent=' trillion';
+          big.innerHTML='';big.appendChild(num);big.appendChild(unit);
+          animateCounter(num,1.2,'$','',true);
+        } else if(i===1){
+          const num=document.createElement('span');
+          const unit=document.createElement('span');
+          unit.style.cssText='font-size:0.38em;color:var(--muted);font-weight:300;letter-spacing:0;';
+          unit.innerHTML='&thinsp;x';
+          big.innerHTML='';big.style.color='var(--li2)';big.appendChild(num);big.appendChild(unit);
+          animateCounter(num,3,'','',false);
+        } else if(i===2){
+          animateCounter(big,3,'1 in ','',false);
+        }
+      },i*120);
+    });
+  },{threshold:0.4});
+  cards.forEach(c=>obs.observe(c));
+})();
+
+/* ── HERO PARALLAX ── */
+(function(){
+  const heroBody=document.querySelector('.hero-body');
+  const heroGlow=document.querySelector('.hero-glow');
+  window.addEventListener('scroll',()=>{
+    if(window.innerWidth<=768)return;
+    const y=window.scrollY;
+    if(heroBody)heroBody.style.transform=`translateY(${y*0.15}px)`;
+    if(heroGlow)heroGlow.style.transform=`translate(-60%,-50%) translateY(${y*0.08}px)`;
+  },{passive:true});
+})();
+
 </script>
 </body>
 </html>
