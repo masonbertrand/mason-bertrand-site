@@ -144,7 +144,7 @@ h2.sh{font-size:clamp(28px,3vw,42px);font-weight:800;letter-spacing:-0.04em;line
 .sphere-wrap{position:relative;height:560px;margin-top:0;cursor:grab;user-select:none;}
 .sphere-wrap:active{cursor:grabbing;}
 #halo-canvas{position:absolute;inset:0;width:100%;height:100%;will-change:transform;contain:paint;}
-.sl{position:absolute;pointer-events:none;transform:translate(-50%,-50%);opacity:0;transition:opacity 0.5s;}
+.sl{position:absolute;pointer-events:none;transform:translate(-50%,-50%);opacity:0;transition:opacity 0.5s;white-space:nowrap;}
 .sl-text{font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#fff;padding:8px 14px;background:#0A66C2;border-radius:4px;line-height:1;display:block;text-align:center;}
 .sl-sub{font-size:9px;font-weight:400;letter-spacing:0.04em;color:rgba(255,255,255,0.7);margin-top:4px;text-transform:none;}
 .sl-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:11px;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;color:var(--li2);text-align:center;pointer-events:none;line-height:1.5;z-index:2;opacity:0;transition:opacity 0.6s 0.3s;}
@@ -475,10 +475,10 @@ footer{padding:22px 64px;border-top:1px solid var(--bdr);display:flex;align-item
     <div style="display:flex;flex-direction:column;align-items:center;">
       <div class="sphere-wrap" id="sphere-wrap" style="max-width:560px;width:100%;margin:0 auto;margin-top:0;">
         <canvas id="halo-canvas"></canvas>
-        <div class="sl" id="sl-0"><div class="sl-text">Purchase Intent<div class="sl-sub">Audience already wants it</div></div></div>
-        <div class="sl" id="sl-1"><div class="sl-text">Direct Checkout<div class="sl-sub">Buy without leaving the platform</div></div></div>
-        <div class="sl" id="sl-2"><div class="sl-text">Repeat Purchase<div class="sl-sub">Trust compounds over time</div></div></div>
-        <div class="sl" id="sl-3"><div class="sl-text">Organic Reach<div class="sl-sub">Buyers become your next creators</div></div></div>
+        <div class="sl" id="sl-0"><div class="sl-text">Purchase Intent</div></div>
+        <div class="sl" id="sl-1"><div class="sl-text">Direct Checkout</div></div>
+        <div class="sl" id="sl-2"><div class="sl-text">Repeat Purchase</div></div>
+        <div class="sl" id="sl-3"><div class="sl-text">Organic Reach</div></div>
         <div class="sl-center" id="sl-center">The<br>Flywheel</div>
       </div>
       <p class="sphere-hint s3d">Drag to rotate</p>
@@ -647,9 +647,10 @@ footer{padding:22px 64px;border-top:1px solid var(--bdr);display:flex;align-item
       const np=Math.max(0,Math.min(1,(buildP-i*.15)*3));
       const cx=wrap.offsetWidth/2,cy=wrap.offsetHeight/2;
       const dx=sc.x-cx,dy=sc.y-cy,len=Math.sqrt(dx*dx+dy*dy)||1;
-      el.style.left=(sc.x+(dx/len)*32)+'px';
-      el.style.top=(sc.y+(dy/len)*32)+'px';
+      el.style.left=(sc.x+(dx/len)*36)+'px';
+      el.style.top=(sc.y+(dy/len)*36)+'px';
       el.style.opacity=np;
+      el.style.transform='translate(-50%,-50%)';
     });
     renderer.render(scene,camera);
   }
